@@ -1,0 +1,225 @@
+@import "../utils/config";
+@import "../utils/mixins";
+
+.main-reservation{
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  justify-content: center;
+  align-content: center;
+}
+
+.restaurant-main{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  text-align: center;
+  margin-top:5%;
+  .main-wrapper{
+    width:95%;
+    h1{
+      width: 100%;
+    }
+    img{
+      width: 100%;
+      margin-bottom:1.5em;
+    }
+    span{
+      font-weight: 800;
+    }
+    p{
+      margin-bottom:1.5em;
+    }
+  }
+  @include desde($mediado){
+    /*justify-content: flex-start;*/
+    width: 70%;
+    margin-bottom: 0;
+    .main-wrapper {
+
+    }
+  }
+  @include desde($grande){
+    .main-wrapper {
+      width: 85%;
+    }
+  }
+}
+
+
+.restaurant-reservation{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    text-align: center;
+  .reservation-wrapper{
+    width:95%;
+    background-color: $light-gray;
+    padding: 8%;
+
+    h3{
+      margin-bottom: 5%;
+      color: $primary-red;
+    }
+    input{
+      margin: 2.5%;
+      width: 80%;
+      height: 2em;
+    }
+    input:last-of-type{
+      background-color: $primary-red;
+      color: $white;
+    }
+  }
+  @include desde($mediado){
+    width: 20%;
+
+    align-self:center;
+    .reservation-wrapper {
+      /*display: flex;*/
+      align-content: center;
+    }
+  }
+}
+
+.restaurant-img{
+  margin:2em 0;
+  width:100%;
+  /*border:1px 0 dotted $primary-red;*/
+  .img-wrapper{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    flex-wrap: wrap;
+    width:95%;
+    padding: 8%;
+    h1{
+      width:100%;
+    }
+    .img-gallery{
+      width:100%;
+      a{
+        img{
+          margin:0.2em 0;
+          width: 10em;
+          height: auto;
+        }
+      }
+    }
+  }
+  @include desde($mediado) {
+    margin: 0;
+    width: 100%;
+
+    .img-wrapper {
+      padding: 3%;
+    }
+  }
+}
+
+
+
+.restaurant-menu{
+  border:1px dotted $primary-red;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 2% 0;
+  background-color: $light-gray;
+  .menu-wrapper{
+    border:1px dotted $primary-red;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    width:95%;
+    background-color: $white;
+    padding: 2% 0;
+    h2{
+      width: 100%;
+      color: $primary-red;
+      text-align: center;
+    }
+    .menu-container{
+      text-align: center;
+      ul{
+        list-style: none;
+      }
+    }
+    @include desde($mediado) {
+      width:30%;
+     }
+  }
+}
+
+.qualities-map{
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.restaurant-description{
+  margin: 2em 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 2% 0;
+
+  .description-wrapper {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 95%;
+    background-color: $white;
+    padding: 2% 0;
+
+    .description-container {
+      h2{
+        text-align: center;
+      }
+      p{
+        text-align: justify;
+        text-justify: inter-word;
+      }
+    }
+    .restaurant-qualities {
+      margin: 1em 0;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+
+      div{
+        margin: 1em 0;
+        padding: 1em 0;
+        display: flex;
+        justify-content: center;
+        width: 80%;
+        background-color: $light-gray;
+
+        h4{
+          color: $primary-red;
+        }
+      }
+    }
+    .restaurant-map {
+      width: 100%;
+      .map-c{
+        border: 1px solid $primary-red;
+        width: 100%;
+        height: 10em;
+      }
+    }
+    @include desde($mediado){
+      .restaurant-qualities{
+        width: 30%;
+      }
+      .restaurant-map{
+        align-self: center;
+        width: 70%;
+        p{
+          text-align: center;
+        }
+      }
+    }
+  }
+}

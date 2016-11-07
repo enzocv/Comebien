@@ -1,0 +1,196 @@
+@import "../utils/config";
+@import "../utils/mixins";
+
+.search-main{
+  width: 95%;
+  height:auto;
+  margin-left:auto;
+  margin-right:auto;
+  padding:.3em .5em;
+}
+.search-restaurants{
+  display: flex;
+  flex-direction: column;
+  flex: 1 0 auto;
+}
+.search-restaurant{
+  border: 1px dashed $primary-red;
+  margin-bottom: .5em;
+  padding: .2em;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  transition: .6s;
+  &__img{
+    height: 10em;
+    width: 40%;
+  }
+}
+.search-restaurant__info{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding:.2em 0;
+  color: $dark-blue;
+
+  &--title{
+    text-transform: uppercase;
+    font-size: 1.2em;
+  }
+  &--place{
+    text-transform: uppercase;
+    font-size: 1em;
+  }
+
+  &--calification{
+    font-size: 1em;
+
+    & >.stars{
+      color:deepskyblue;
+      font-size: 1.2em;
+      padding-right: .5em;
+    }
+  }
+
+  &--precio{
+    text-transform: uppercase;
+    font-size: 1em;
+    & > .desde:after{
+      content: "   S/.";
+      padding-left: .5em;
+    }
+  }
+
+  &--more{
+    color: $primary-red;
+    border: 2px solid $dark-blue;
+    border-radius: 10px;
+    padding:.3em 1.2em;
+    transition: .3s;
+    &:hover{
+      background: rgba($gray,.5);
+    }
+  }
+
+  .box-help{
+    height: 8em;
+    text-align: center;
+    display: flex;
+    flex-direction: row;
+    width: 95%;
+    justify-content: space-around;
+    align-items: center;
+  }
+}
+@media screen and (max-width: 45em){
+  .search-restaurant{
+    flex-direction: column;
+    border:none;
+    &__img{
+      height: 15em;
+      width: 100%;
+    }
+    &--more{
+      margin-top: 1em;
+    }
+    .box-help{
+      flex-direction: column;
+    }
+  }
+}
+
+
+/* TOGGLE PANEL MOD*/
+
+.content-filter{
+  width: 95%;
+  margin-left:auto;
+  margin-right:auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  flex: 1 0 auto;
+}
+.box-mostrar2{
+  width: 16em;
+  height:auto;
+  background: $black;
+  color: $white;
+  text-align: center;
+  margin:.3em auto;
+  border: 2px solid $gray;
+  padding: .3em;
+  border-radius: 1em;
+  cursor: pointer;
+}
+
+.box-panel{
+  width: 90%;
+  background: white;
+  border: none;
+  max-height: 0;
+  overflow: hidden;
+  margin-left: auto;
+  margin-right:auto;
+  transition: all 2s;
+}
+.box-elementomostrar{
+  background: rgba($primary-red,.65);
+  width: 90%;
+  max-height: 15em;
+  height: 10em;
+  margin:.3em auto;
+  padding: .3em;
+  text-align: center;
+  border-radius: 1em;
+}
+.box-mostrar{
+  max-height: 15em;
+  overflow: visible;
+  clear: both;
+}
+
+select{
+  outline: none;
+  -webkit-appearance: none;
+  display: block;
+  padding:.3em 1em;
+  margin: 0 auto;
+
+  transition: border-color 0.2s;
+  border: 1px solid #70bcc6;
+  border-radius: 5px;
+
+  background: #fff;
+  color: #555;
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+}
+.label-place,
+.input-place{
+  display: block;
+  color: $white;
+}
+.label-place{
+  margin-top: .3em;
+}
+.input-place{
+  margin: .3em auto;
+  width: 12em;
+  color:$primary-red-darken;
+}
+.box-ubicacion{
+  height: 7em;
+}
+.box-comida{
+  height: 14em;
+}
+
+@media screen and (max-width: 30em){
+  .content-filter{
+    flex-direction: column;
+  }
+
+}

@@ -1,0 +1,126 @@
+@import "../utils/config";
+@import "../utils/mixins";
+
+.nav-mixed {
+  height: 100%;
+  display: flex;
+  background-color: $primary-red;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  .single-nav{
+    flex: 1 0 70%;
+    text-align: center;
+  }
+  .social-menu{
+    flex: 1 0 30%;
+  }
+}
+
+.menu ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  background: $primary-red;
+}
+
+.menu li a {
+  display: block;
+  text-decoration: none;
+  color: white;
+  padding: .6em 1em;
+}
+
+.menu li a:hover {
+  background: $gray;
+}
+
+.single-nav {
+  ul{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  li {
+    flex: 1 0 auto;
+    text-align: center;
+    a{
+      border-right: 1px solid darken($primary-red, 15);
+    }
+  }
+}
+
+.social-menu ul{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+
+@media screen and (max-width: 30em) {
+  .single-nav {
+    ul{
+      display: flex;
+      flex-direction: column;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      font-size: 1.2em;
+    }
+    li{
+      flex: 1 0 auto;
+      text-align: center;
+      a{
+        border-bottom: 1px solid darken($primary-red, 15);
+      }
+    }
+  }
+  .social-menu {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 45em) {
+
+  .nav-mixed {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    background-color: $primary-red;
+    .single-nav{
+      flex: 1 0 70%;
+      text-align: center;
+    }
+    .social-menu{
+      flex: 1 0 30%;
+    }
+  }
+
+
+  .single-nav {
+    ul{
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      font-size: 1.2em;
+    }
+    li{
+      flex: 1 0 auto;
+      text-align: center;
+    }
+  }
+  .social-menu ul{
+    justify-content: center;
+  }
+}
+
+.social-menu li a:before{
+  font-family: 'Fontawesome';
+  -webkit-font-smoothing: antialiased;
+  -moz-font-smoothing: antialiased;
+  content: '';
+}
+
+.social-menu li a[href*="facebook.com"]::before{ content: '\f09a'};
+.social-menu li a[href*="twitter.com"]::before{ content: '\f099'};
+.social-menu li a[href*="plus.google.com"]::before{ content: '\f0d5'};
+.social-menu li a[href*="youtube.com"]::before{ content: '\f167'};

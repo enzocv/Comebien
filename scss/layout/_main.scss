@@ -1,0 +1,101 @@
+@import "../utils/config";
+@import "../utils/mixins";
+.main{
+  background-color: coral;
+  text-align: center;
+  width: 100%;
+  height: 100vh;
+  color:$white;
+  position: relative;
+
+  .main-banner{
+    width: 100%;
+    height: 100%;
+  }
+
+  .copy-main{
+    //padding-top: 6em;
+    width: 100%;
+    height: 450px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    z-index: 20;
+    transform: translateX(-50%) translateY(-50%);
+  }
+  .banner-title{
+    margin: 0;
+    padding: 0;
+    font-size: 1.8em;
+    text-transform: uppercase;
+
+    @include desde($pequeño){
+      font-size: 2em;
+    }
+  }
+
+  .container-options-banner{
+    margin-top: 0;
+    margin-bottom: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+
+    @include desde($mediado){
+      margin-top: 2em;
+      display: flex;
+      justify-content: center;
+      margin-left:auto;
+      margin-right:auto;
+    }
+  }
+
+  .banner-option{
+    margin-left: .5em;
+    margin-right: .5em;
+  }
+
+  .banner-slogan{
+    font-size: 1.8em;
+    @include desde($mediado){
+      font-size: 1.5em;
+    }
+  }
+  .banner-input{
+    color: $primary-red-darken;
+    font-size: 1.2em;
+    line-height: 1.5em;
+    width: 15em;
+    display: block;
+    margin-left:auto;
+    margin-right:auto;
+    margin-top: 10px;
+    border: none;
+    outline: none;
+
+    @include desde($mediado){
+      font-size: 1.2em;
+    }
+
+  }
+  .banner-label{
+    display: block;
+    font-size: 1.2em;
+    padding-top: 5px;
+  }
+  .banner-button{
+    color: $white;
+    font-size: 1em;
+    margin-top: .5em;
+    background: $primary-red-darken;
+    outline: none;
+    border: none;
+    padding:3px 20px;
+    &:hover{
+      background: $primary-red;
+    }
+
+    @include desde($mediado){
+      font-size: 1em;
+    }
+  }
+}

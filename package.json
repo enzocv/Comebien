@@ -1,0 +1,25 @@
+{
+  "name": "come-bien-project",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {},
+  "devDependencies": {
+    "browser-sync": "^2.11.1",
+    "gulp": "^3.9.0",
+    "gulp-autoprefixer": "^3.1.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/enzocv/Comebien.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/enzocv/Comebien/issues"
+  },
+  "homepage": "https://github.com/enzocv/Comebien#readme"
+}

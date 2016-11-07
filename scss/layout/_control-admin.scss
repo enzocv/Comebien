@@ -1,0 +1,140 @@
+@import "../utils/config";
+@import "../utils/mixins";
+
+.control-title{
+  text-align: center;
+  font-size: 2em;
+  color: $primary-red;
+  padding-top: .8em;
+}
+.container-basic-information{
+  background: rgba($gray,.5);
+  border-radius: 10px;
+  width: 95%;
+  padding-top: .5em;
+  height:auto;
+  margin-left:auto;
+  margin-right:auto;
+}
+.information-restaurants{
+  height:auto;
+  &__name{
+    display: flex;
+    justify-content: center;
+
+    width: 100%;
+    text-align: center;
+    padding-bottom: .5em;
+  }
+
+  &__description{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 100%;
+    text-align: center;
+    padding-bottom: .5em;
+  }
+  &__stars{
+    display: flex;
+    justify-content: center;
+    padding-bottom: .5em;
+  }
+  &__ubicacion{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    padding-bottom: .5em;
+  }
+  &__image{
+    display: flex;
+    justify-content: center;
+    padding-bottom: .5em;
+    padding-top: .5em;
+  }
+
+  &__label{
+    font-size: 1.2em;
+    color: $primary-red;
+    /**/
+    padding-right: 1em;
+  }
+  &__input{
+    font-size: 1.2em;
+    width: 13.3em;
+    color: $primary-red-darken;
+  }
+  &__buttom{
+    font-size: 1.2em;
+    border-radius: 10px;
+    width: 10em;
+    padding:.2em 0;
+    color: $white;
+    border:none;
+    background: $primary-red-darken;
+    &:hover{
+      background: $primary-red;
+    }
+  }
+  &__texarea{
+    color: $primary-red-darken;
+    //width: 15.6em;
+  }
+}
+
+.container-information-menu{
+  margin-top: .5em;
+  background: rgba($gray,.5);
+  border-radius: 10px;
+  width: 95%;
+  padding-top: .5em;
+  height:auto;
+  margin-left:auto;
+  margin-right:auto;
+}
+.information-restaurants__menu{
+  display: flex;
+  justify-content: center;
+  padding-bottom: .5em;
+
+}
+.container-submit{
+  display: flex;
+  width: 50%;
+  margin-left:auto;
+  margin-right:auto;
+  padding-bottom: .8em;
+  .submit{
+    margin-top: 2.5em;
+    width: 100%;
+  }
+}
+@media screen and (max-width: 30em){
+
+   .information-restaurants {
+      &__name {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+       &__description{
+         flex-direction: column;
+       }
+       &__ubicacion{
+        flex-direction: column;
+        align-items: center;
+       }
+       &__image{
+        flex-direction: column;
+        align-items: center;
+       }
+   }
+  .information-restaurants__menu {
+    flex-direction: column;
+    align-items: center;
+  }
+  .container-submit{
+    width: 95%;
+  }
+}

@@ -1,0 +1,83 @@
+@import "../utils/config";
+@import "../utils/mixins";
+.container-rankings{
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: center;
+}
+.container-rankings > .l-container-rankings{
+
+  width:95%;
+  margin: 5% auto;
+  height: 100%;
+  background-color: $light-gray;
+
+
+
+  .rankings-title{
+    margin-top: 2%;
+    text-align: center;
+    color: $black;
+    padding: 1em;
+  }
+  .rankings-img{
+    height:10em;
+    width: 100%;
+    padding: .5em;
+    border-radius: 20px;
+  }
+
+  div  article{
+      height: 5em;
+      padding: 1%;
+      margin: 5% 0 10% 0;
+      width: 100%;
+      .rankings-index{
+        font-size: 2em;
+        color: $gray;
+        padding: 2%;
+        display:flex;
+        align-items: center;
+        width: 20%;
+        height: 100%;
+        float: left;
+      }
+      a{
+        width: 80%;
+        padding: 1em;
+        color: $primary-red;
+        text-transform: uppercase;
+        font-weight: 800;
+        float: left;
+        line-height: 1em;
+      }
+      p{
+        float: left;
+        width: 80%;
+        line-height: 0.1em;
+        padding-left: 1em;
+      }
+      span:first-of-type{
+        float: left;
+        color: gray;
+        padding-left: 1em;
+        margin-top: 5%;
+        padding-top: 1%;
+        font-size: 1.3em;
+
+      }
+      span:last-child{
+        margin-top: 5%;
+        padding: 1%;
+        float: right;
+        background-color: $gray;
+        color: $white;
+      }
+    }
+  @include desde($mediado){
+    width: 25%;
+  }
+  @include desde($pequeño){
+  }
+}

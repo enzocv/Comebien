@@ -1,0 +1,63 @@
+@import "base/normalize";
+@import "layout/header";
+@import "layout/nav";
+@import "layout/main";
+@import "layout/container-options";
+@import "layout/featured";
+@import "layout/rankings";
+@import "layout/footer";
+@import "layout/search-header";
+@import "layout/search-main";
+@import "layout/restaurant";
+@import "layout/control-admin";
+
+
+.criolla{
+  position: relative;
+  background: url(../images/food/lomo-saltado.jpg) no-repeat;
+  background-size: cover;
+}
+.oriental{
+  position: relative;
+  background: url(../images/food/foriental.jpg) no-repeat;
+  background-size: cover;
+}
+.italiana{
+  position: relative;
+  background: url(../images/food/fpizza.jpg) no-repeat;
+  background-size: cover;
+}
+.parrillas{
+  position: relative;
+  background: url(../images/food/fmeat2.jpg) no-repeat;
+  background-size: cover;
+}
+.marina{
+  position: relative;
+  background: url(../images/food/fceviche.jpg) no-repeat;
+  background-size: cover;
+}
+.polleria{
+  position: relative;
+  background: url(../images/food/fchicken.jpg) no-repeat;
+  background-size: cover;
+}
+.main{
+  position: relative;
+  background: url(../images/food/mainbanner2.jpg) no-repeat;
+  background-size: cover;
+}
+.opacity:before{
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  border-radius: 10px;
+  width: 100%;
+  height: 100%;
+  background: rgba(51,51,51,.3);
+  z-index: 10;
+}
+.main:before{
+  background: rgba(51,51,51,.1);
+}
