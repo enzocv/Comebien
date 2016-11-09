@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="css/style.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/style_restaurantes.css">
 </head>
 <body>
     <header class="main-header">
@@ -58,7 +59,7 @@
                     <div class="box-panel" id="added2"><a name="show"></a>
                         <div class="box-elementomostrar box-ubicacion">
                             <label class="label-place" for="place">Precio:</label>
-                            <input class="input-place" type="text" placeholder="S/." id="place">
+                            <input class="input-place" type="text" placeholder="S/." id="place2">
                         </div>
                     </div>
             </div>
@@ -107,7 +108,7 @@
                     <div class="box-help">
                         <p class="search-restaurant__info--calification"><span class="stars">&star;&star;&star;</span>calificacón</p>
                         <p class="search-restaurant__info--precio"><span class="desde">desde</span>50</p>
-                        <a class="search-restaurant__info--more" href="restaurant.html">Leer más..</a>
+                        <a class="search-restaurant__info--more" href="restaurant.php">Leer más..</a>
                     </div>
                 </section>
             </article>
@@ -119,7 +120,7 @@
                     <div class="box-help">
                         <p class="search-restaurant__info--calification"><span class="stars">&star;&star;&star;</span>calificacón</p>
                         <p class="search-restaurant__info--precio"><span class="desde">desde</span>50</p>
-                        <a class="search-restaurant__info--more" href="restaurant.html">Leer más..</a>
+                        <a class="search-restaurant__info--more" href="restaurant.php">Leer más..</a>
                     </div>
                 </section>
             </article>
@@ -131,7 +132,7 @@
                     <div class="box-help">
                         <p class="search-restaurant__info--calification"><span class="stars">&star;&star;&star;</span>calificacón</p>
                         <p class="search-restaurant__info--precio"><span class="desde">desde</span>50</p>
-                        <a class="search-restaurant__info--more" href="restaurant.html">Leer más..</a>
+                        <a class="search-restaurant__info--more" href="restaurant.php">Leer más..</a>
                     </div>
                 </section>
             </article>
@@ -143,7 +144,7 @@
                     <div class="box-help">
                         <p class="search-restaurant__info--calification"><span class="stars">&star;&star;&star;</span>calificacón</p>
                         <p class="search-restaurant__info--precio"><span class="desde">desde</span>50</p>
-                        <a class="search-restaurant__info--more" href="restaurant.html">Leer más..</a>
+                        <a class="search-restaurant__info--more" href="restaurant.php">Leer más..</a>
                     </div>
                 </section>
             </article>
@@ -155,7 +156,7 @@
                     <div class="box-help">
                         <p class="search-restaurant__info--calification"><span class="stars">&star;&star;&star;</span>calificacón</p>
                         <p class="search-restaurant__info--precio"><span class="desde">desde</span>50</p>
-                        <a class="search-restaurant__info--more" href="restaurant.html">Leer más..</a>
+                        <a class="search-restaurant__info--more" href="restaurant.php">Leer más..</a>
                     </div>
                 </section>
             </article>
@@ -167,7 +168,7 @@
                     <div class="box-help">
                         <p class="search-restaurant__info--calification"><span class="stars">&star;&star;&star;</span>calificacón</p>
                         <p class="search-restaurant__info--precio"><span class="desde">desde</span>50</p>
-                        <a class="search-restaurant__info--more" href="restaurant.html">Leer más..</a>
+                        <a class="search-restaurant__info--more" href="restaurant.php">Leer más..</a>
                     </div>
                 </section>
             </article>
@@ -191,7 +192,7 @@
                     <div class="box-help">
                         <p class="search-restaurant__info--calification"><span class="stars">&star;&star;&star;</span>calificacón</p>
                         <p class="search-restaurant__info--precio"><span class="desde">desde</span>50</p>
-                        <a class="search-restaurant__info--more" href="restaurant.html">Leer más..</a>
+                        <a class="search-restaurant__info--more" href="restaurant.php">Leer más..</a>
                     </div>
                 </section>
             </article>
@@ -203,7 +204,7 @@
                     <div class="box-help">
                         <p class="search-restaurant__info--calification"><span class="stars">&star;&star;&star;</span>calificacón</p>
                         <p class="search-restaurant__info--precio"><span class="desde">desde</span>50</p>
-                        <a class="search-restaurant__info--more" href="restaurant.html">Leer más..</a>
+                        <a class="search-restaurant__info--more" href="restaurant.php">Leer más..</a>
                     </div>
                 </section>
             </article>
@@ -215,7 +216,7 @@
                     <div class="box-help">
                         <p class="search-restaurant__info--calification"><span class="stars">&star;&star;&star;</span>calificacón</p>
                         <p class="search-restaurant__info--precio"><span class="desde">desde</span>50</p>
-                        <a class="search-restaurant__info--more" href="restaurant.html">Leer más..</a>
+                        <a class="search-restaurant__info--more" href="restaurant.php">Leer más..</a>
                     </div>
                 </section>
             </article>

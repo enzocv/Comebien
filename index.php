@@ -57,7 +57,7 @@
                         <input class="banner-input" type="date" id="fecha" placeholder="Cualquier fecha">
                     </div>
             </div>
-            <a href="search.html">
+            <a href="search.php">
                 <input type="button" class="banner-button" value="Buscar">
             </a>
         </div>

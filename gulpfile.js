@@ -1,38 +1,28 @@
-/**
- * Created by Enzocv on 23/01/2016.
- */
 var gulp = require('gulp');
+var sass = require('gulp-sass');
 var browserSync = require('browser-sync').create();
 var autoprefixer = require('gulp-autoprefixer');
-var reload = browserSync.reload;
 
-gulp.task('browser-sync', function () {
-    browserSync.init({
-        server: {
-            baseDir: "./"
-        }
-    });
-});
-
-gulp.task('watch', function () {
-    gulp.watch("css/*.css", ['autoprefixer']);
-    gulp.watch('./*.html').on("change", reload);
-});
-
-gulp.task('autoprefixer', function () {
-    return gulp.src('css/*.css')
+//tareas
+gulp.task('sass', function () {
+    return gulp.src('./scss/**/*.scss')
+        .pipe(sass().on('error', sass.logError))
         .pipe(autoprefixer({
-            browsers: ['last 5 versions','> 1%',
-                'ie 8',
-                'ie 9',
-                'ios 6',
-                'android 4'],
+            browsers: ['last 2 versions'],
             cascade: true
         }))
-        .pipe(gulp.dest('css'))
-        .pipe(reload({
-            stream: true
-        }))
+        .pipe(gulp.dest('./css'))
+        .pipe(browserSync.stream());
 });
 
-gulp.task('default', ['watch', 'browser-sync']);
+gulp.task('default', function() {
+
+    browserSync.init({
+        server: "./"
+    });
+
+    gulp.watch("./scss/**/*.scss", ['sass']);
+    gulp.watch("./*.html").on('change', browserSync.reload);
+    gulp.watch("./*.php").on('change', browserSync.reload);
+    gulp.watch("./js/*.js").on('change', browserSync.reload);
+});
