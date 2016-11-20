@@ -1,3 +1,11 @@
+<?php
+include_once('conexion.php');
+$link = Conectarse();
+$campo= $_GET["id"];
+$consulta = "SELECT * FROM usuario WHERE idusuario={$campo}";
+
+$rs = mysql_query($consulta) or die("Fallo la Consulta");
+?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -19,7 +27,7 @@
             </ul>
         </nav>
     </header>
-    
+
     <div class="nav-mixed menu">
         <nav class="single-nav menu">
             <ul>
@@ -27,17 +35,11 @@
                 <li><a href="#">Elige</a></li>
                 <li><a href="#">Ofertas</a></li>
                 <li><a href="#">Rankings</a></li>
+                <li><a href="RestaurantManagement/view/addRestaurante_view.php?id=<?=$campo?>">Agregar Restaurante</a></li>
             </ul>
         </nav>
         <nav class="social-menu menu" role="navigation">
             <?php
-                include_once('conexion.php');
-                $link = Conectarse();
-                $campo= $_GET["id"];
-                $consulta = "SELECT * FROM usuario WHERE idusuario={$campo}";
-
-                $rs = mysql_query($consulta) or die("Fallo la Consulta");
-
             while($datosUsuario = mysql_fetch_array($rs)) {
                 ?>
                 <nav class="single-nav menu">
