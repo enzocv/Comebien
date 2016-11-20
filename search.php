@@ -12,7 +12,7 @@
         $locacion = "Tacna";
     }
     if($tipoCocina == ""){
-        $tipoCocina = "Criolla";
+        $tipoCocina = "Marina";
     }
     if($feha == "01-01-1970"){
         $feha = date("d/m/Y");
@@ -21,7 +21,7 @@
     $consulta = "SELECT * FROM tipodetalle tdeta inner join restaurante res on res.idRestaurante = tdeta.idRestaurante
                 inner join tiporestaurante tres on tres.idTipo = tdeta.idTipo inner join distrito dis 
                 on dis.idDistrito = res.idDistrito 
-                where tres.nombreTipo = '{$tipoCocina}' or dis.nombreDistrito = '{$locacion}'";
+                where tres.nombreTipo = '{$tipoCocina}' AND dis.nombreDistrito = '{$locacion}'";
 
 ?>
 
