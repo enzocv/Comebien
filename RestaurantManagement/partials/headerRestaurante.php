@@ -20,23 +20,10 @@
         </ul>
     </nav>
     <nav class="social-menu menu" role="navigation">
-        <?php
-        include_once('../../conexion.php');
-        $link = Conectarse();
-        $campo= $_GET["id"];
-        $consulta = "SELECT * FROM usuario WHERE idusuario={$campo}";
-
-        $rs = mysql_query($consulta) or die("Fallo la Consulta");
-
-        while($datosUsuario = mysql_fetch_array($rs)) {
-            ?>
             <nav class="single-nav menu">
                 <ul>
-                    <li><a href="#"><span><?= $datosUsuario['nombreusuario'] . " " . $datosUsuario['apellidousuario'];?></span></a></li>
+                    <li><a href="#"><span>Nombre Usuario</span></a></li>
                 </ul>
             </nav>
-            <?php
-        }
-        ?>
     </nav>
 </div>
