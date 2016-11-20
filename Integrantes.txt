@@ -1,4 +1,3 @@
 Avance del proyecto ComeBien (Buscador de Restaurantes)
 -Aguirre Ramos , Andrei.
 -Catalán Vargas, Enzo.
--Cuyo Ascaño, Christopher.
