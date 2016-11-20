@@ -1,0 +1,24 @@
+.main-login{
+  width: 600px;
+  margin: 8.32em auto;
+  padding: .5em 0;
+}
+.user,.password{
+  padding: 1.5em;
+}
+.user__lbl{
+  width: 100px;
+  display: inline-block;
+}
+.user_txt{
+  padding:.1em 0;
+  width: 12em;
+}
+.user__btn{
+  border: none;
+  width: 100px;
+  padding: .2em 0 .2em;
+  color:#FFF;
+  background: $primary-red;
+  margin:.8em 0;
+}

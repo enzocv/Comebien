@@ -1,3 +1,30 @@
+<?php
+    include_once ('conexion.php');
+    $link = Conectarse();
+
+    $tipoCocina = $_POST["tipoCocina"];
+    $locacion   = $_POST["locacion"];
+
+    $feha = mysql_real_escape_string($_POST['fecha']);
+    $feha = date("d-m-Y", strtotime($feha));
+
+    if($locacion == ""){
+        $locacion = "Tacna";
+    }
+    if($tipoCocina == ""){
+        $tipoCocina = "Criolla";
+    }
+    if($feha == "01-01-1970"){
+        $feha = date("d/m/Y");
+    }
+
+    $consulta = "SELECT * FROM tipodetalle tdeta inner join restaurante res on res.idRestaurante = tdeta.idRestaurante
+                inner join tiporestaurante tres on tres.idTipo = tdeta.idTipo inner join distrito dis 
+                on dis.idDistrito = res.idDistrito 
+                where tres.nombreTipo = '{$tipoCocina}' or dis.nombreDistrito = '{$locacion}'";
+
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -100,126 +127,25 @@
     
     <main class="search-main">
         <section class="search-restaurants">
-            <article class="search-restaurant">
-                <img class="search-restaurant__img" src="images/frestaurants/restaurant1.jpg" alt="">
-                <section class="search-restaurant__info">
-                    <h4 class="search-restaurant__info--title">titulo Restaurante</h4>
-                    <p class="search-restaurant__info--place">lugar</p>
-                    <div class="box-help">
-                        <p class="search-restaurant__info--calification"><span class="stars">&star;&star;&star;</span>calificacón</p>
-                        <p class="search-restaurant__info--precio"><span class="desde">desde</span>50</p>
-                        <a class="search-restaurant__info--more" href="restaurant.php">Leer más..</a>
-                    </div>
-                </section>
-            </article>
-            <article class="search-restaurant">
-                <img class="search-restaurant__img" src="images/frestaurants/restaurant2.jpg" alt="">
-                <section class="search-restaurant__info">
-                    <h4 class="search-restaurant__info--title">titulo Restaurante</h4>
-                    <p class="search-restaurant__info--place">lugar</p>
-                    <div class="box-help">
-                        <p class="search-restaurant__info--calification"><span class="stars">&star;&star;&star;</span>calificacón</p>
-                        <p class="search-restaurant__info--precio"><span class="desde">desde</span>50</p>
-                        <a class="search-restaurant__info--more" href="restaurant.php">Leer más..</a>
-                    </div>
-                </section>
-            </article>
-            <article class="search-restaurant">
-                <img class="search-restaurant__img" src="images/frestaurants/restaurant3.jpg" alt="">
-                <section class="search-restaurant__info">
-                    <h4 class="search-restaurant__info--title">titulo Restaurante</h4>
-                    <p class="search-restaurant__info--place">lugar</p>
-                    <div class="box-help">
-                        <p class="search-restaurant__info--calification"><span class="stars">&star;&star;&star;</span>calificacón</p>
-                        <p class="search-restaurant__info--precio"><span class="desde">desde</span>50</p>
-                        <a class="search-restaurant__info--more" href="restaurant.php">Leer más..</a>
-                    </div>
-                </section>
-            </article>
-            <article class="search-restaurant">
-                <img class="search-restaurant__img" src="images/frestaurants/restaurant4.jpg" alt="">
-                <section class="search-restaurant__info">
-                    <h4 class="search-restaurant__info--title">titulo Restaurante</h4>
-                    <p class="search-restaurant__info--place">lugar</p>
-                    <div class="box-help">
-                        <p class="search-restaurant__info--calification"><span class="stars">&star;&star;&star;</span>calificacón</p>
-                        <p class="search-restaurant__info--precio"><span class="desde">desde</span>50</p>
-                        <a class="search-restaurant__info--more" href="restaurant.php">Leer más..</a>
-                    </div>
-                </section>
-            </article>
-            <article class="search-restaurant">
-                <img class="search-restaurant__img" src="images/frestaurants/restaurant1.jpg" alt="">
-                <section class="search-restaurant__info">
-                    <h4 class="search-restaurant__info--title">titulo Restaurante</h4>
-                    <p class="search-restaurant__info--place">lugar</p>
-                    <div class="box-help">
-                        <p class="search-restaurant__info--calification"><span class="stars">&star;&star;&star;</span>calificacón</p>
-                        <p class="search-restaurant__info--precio"><span class="desde">desde</span>50</p>
-                        <a class="search-restaurant__info--more" href="restaurant.php">Leer más..</a>
-                    </div>
-                </section>
-            </article>
-            <article class="search-restaurant">
-                <img class="search-restaurant__img" src="images/frestaurants/restaurant6.jpg" alt="">
-                <section class="search-restaurant__info">
-                    <h4 class="search-restaurant__info--title">titulo Restaurante</h4>
-                    <p class="search-restaurant__info--place">lugar</p>
-                    <div class="box-help">
-                        <p class="search-restaurant__info--calification"><span class="stars">&star;&star;&star;</span>calificacón</p>
-                        <p class="search-restaurant__info--precio"><span class="desde">desde</span>50</p>
-                        <a class="search-restaurant__info--more" href="restaurant.php">Leer más..</a>
-                    </div>
-                </section>
-            </article>
-            <article class="search-restaurant">
-                <img class="search-restaurant__img" src="images/frestaurants/restaurant1.jpg" alt="">
-                <section class="search-restaurant__info">
-                    <h4 class="search-restaurant__info--title">titulo Restaurante</h4>
-                    <p class="search-restaurant__info--place">lugar</p>
-                    <div class="box-help">
-                        <p class="search-restaurant__info--calification"><span class="stars">&star;&star;&star;</span>calificacón</p>
-                        <p class="search-restaurant__info--precio"><span class="desde">desde</span>50</p>
-                        <a class="search-restaurant__info--more" href="#">Leer más..</a>
-                    </div>
-                </section>
-            </article>
-            <article class="search-restaurant">
-                <img class="search-restaurant__img" src="images/frestaurants/restaurant2.jpg" alt="">
-                <section class="search-restaurant__info">
-                    <h4 class="search-restaurant__info--title">titulo Restaurante</h4>
-                    <p class="search-restaurant__info--place">lugar</p>
-                    <div class="box-help">
-                        <p class="search-restaurant__info--calification"><span class="stars">&star;&star;&star;</span>calificacón</p>
-                        <p class="search-restaurant__info--precio"><span class="desde">desde</span>50</p>
-                        <a class="search-restaurant__info--more" href="restaurant.php">Leer más..</a>
-                    </div>
-                </section>
-            </article>
-            <article class="search-restaurant">
-                <img class="search-restaurant__img" src="images/frestaurants/restaurant3.jpg" alt="">
-                <section class="search-restaurant__info">
-                    <h4 class="search-restaurant__info--title">titulo Restaurante</h4>
-                    <p class="search-restaurant__info--place">lugar</p>
-                    <div class="box-help">
-                        <p class="search-restaurant__info--calification"><span class="stars">&star;&star;&star;</span>calificacón</p>
-                        <p class="search-restaurant__info--precio"><span class="desde">desde</span>50</p>
-                        <a class="search-restaurant__info--more" href="restaurant.php">Leer más..</a>
-                    </div>
-                </section>
-            </article>
-            <article class="search-restaurant">
-                <img class="search-restaurant__img" src="images/frestaurants/restaurant4.jpg" alt="">
-                <section class="search-restaurant__info">
-                    <h4 class="search-restaurant__info--title">titulo Restaurante</h4>
-                    <p class="search-restaurant__info--place">lugar</p>
-                    <div class="box-help">
-                        <p class="search-restaurant__info--calification"><span class="stars">&star;&star;&star;</span>calificacón</p>
-                        <p class="search-restaurant__info--precio"><span class="desde">desde</span>50</p>
-                        <a class="search-restaurant__info--more" href="restaurant.php">Leer más..</a>
-                    </div>
-                </section>
-            </article>
+            <?php
+            $rs = mysql_query($consulta) or die("Fallo la Consulta");
+            while($busqueda = mysql_fetch_array($rs)) {
+                ?>
+                <article class="search-restaurant">
+                    <img class="search-restaurant__img" src="images/frestaurants/<?=$busqueda['fotoPortada']?>" alt="">
+                    <section class="search-restaurant__info">
+                        <h4 class="search-restaurant__info--title"><?=$busqueda['nombreRestaurante']?></h4>
+                        <p class="search-restaurant__info--place"><?=$busqueda['direccionRestaurante']?></p>
+                        <div class="box-help">
+                            <p class="search-restaurant__info--calification"><span
+                                        class="stars">&star;&star;&star;</span>calificacón</p>
+                            <p class="search-restaurant__info--precio"><span class="desde">desde</span><?=$busqueda['precioGeneral']?></p>
+                            <a class="search-restaurant__info--more" href="restaurant.php">Leer más..</a>
+                        </div>
+                    </section>
+                </article>
+                <?php
+            }?>
         </section>
     </main>
     <footer class="main-footer">
