@@ -1,6 +1,14 @@
+<?php
+include_once('../../conexion.php');
+$link = Conectarse();
+
+$query_distrito = "SELECT * FROM distrito";
+$resultado_distrito = mysql_query($query_distrito);
+
+?>
 <div class="container" style="padding: 1em 0;">
     <h2 class="" style="padding: 0 0 .5em">Gestion de Restaurante</h2>
-    <form action="../addRestaurant.php" method="POST">
+    <form action="../addRestaurant.php" method="POST" enctype="multipart/form-data">
         <div class="form-group">
             <label for="nameRestaurant" class="control-label">Nombre Restaurante:</label>
             <input type="text" name="nameRestaurant" id="nameRestaurant" class="form-control">
@@ -23,7 +31,7 @@
 
         <div class="form-group">
             <label for="imageRestaurant">Imagen de Portada:</label>
-            <input type="text" name="imageRestaurant" id="imageRestaurant" class="form-control">
+            <input type="file" name="imageRestaurant" value="Seleccionar Imagen">
         </div>
 
         <div class="form-group">
@@ -47,8 +55,18 @@
 
         <div class="form-group">
             <label for="districtRestaurant">Distrito:</label>
-            <select name="district" id="districtRestaurant" class="form-control">
-                <option value="Tacna">Tacna</option>
+            <select name="districtRestaurant" id="districtRestaurant" class="form-control">
+                <?php
+                if ($resultado_distrito) {
+                    while ($campo_distrito = mysql_fetch_array($resultado_distrito)) {
+                        $nombre = $campo_distrito['nombreDistrito'];
+                        $id_distrito = $campo_distrito['idDistrito'];
+
+                        echo "<option value=".$id_distrito.">".$nombre."</option>\n";
+                    }
+                    mysql_close();
+                }
+                ?>
             </select>
         </div>
 

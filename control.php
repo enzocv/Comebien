@@ -21,7 +21,7 @@ if (isset($_POST['entrar'])){
     if (mysql_num_rows($rs) != 0) {
         session_start();
         $_SESSION["autentificado"] = "SI";
-        header("Location: principal.php?id={$campo['idusuario']}");
+        header("Location: principal.php");
     }
     else{
         header("Location: search.php");
