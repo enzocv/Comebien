@@ -17,7 +17,7 @@
         <ul>
             <li><a href="../view/addRestaurante_view.php">Agregar Restaurante</a></li>
             <li><a href="../view/listRestaurante_view.php">Listar Restaurante</a></li>
-            <li><a href="#">Modificar Restaurante</a></li>
+            <li><a href="../view/updateRestaurante_table_view.php">Modificar Restaurante</a></li>
             <li><a href="../view/deleteRestaurante_view.php">Eliminar Restaurante</a></li>
         </ul>
     </nav>

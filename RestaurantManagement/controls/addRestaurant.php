@@ -1,5 +1,5 @@
 <?php
-include_once ('../conexion.php');
+include_once('../../conexion.php');
 $link = Conectarse();
 
 $nombreRestaurante = $_POST["nameRestaurant"];
@@ -18,7 +18,7 @@ $menuRestaurante = $_POST["menuRestaurant"];
 $ruta = $_FILES["imageRestaurant"]["tmp_name"];
 $nombre_imagen = $_FILES["imageRestaurant"]["name"];
 
-$destino = "../images/frestaurants/".$nombre_imagen;
+$destino = "../../images/frestaurants/".$nombre_imagen;
 move_uploaded_file($ruta, $destino);
 
 
@@ -32,4 +32,4 @@ $instruccion = "INSERT INTO restaurante(capacidad,cartaRestaurante,descripcionRe
 echo $instruccion;
 
 mysql_query($instruccion);
-header("location: ../search.php");
+header("location: ../../principal.php");
