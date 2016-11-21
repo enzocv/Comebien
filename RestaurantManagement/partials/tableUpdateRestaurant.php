@@ -29,7 +29,7 @@ $query_delete = "SELECT * FROM restaurante r INNER JOIN distrito d on r.idDistri
                 <td><?=$busqueda['nombreRestaurante']?></td>
                 <td><?=$busqueda['direccionRestaurante']?></td>
                 <td><?=$busqueda['nombreDistrito']?></td>
-                <td align="center"><img class="" height="75em" src="../../images/frestaurants/<?=$busqueda['fotoPortada']?>" alt=""></td>
+                <td align="center"><img style="width: 200px;height: 100px; " height="75em" src="../../images/frestaurants/<?=$busqueda['fotoPortada']?>" alt=""></td>
                 <td><a href="../view/updateRestaurante_view.php?idRestaurante=<?=$busqueda['idRestaurante']?>">Modificar</a></td>
             </tr>
             <?php

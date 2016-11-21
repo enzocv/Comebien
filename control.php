@@ -7,9 +7,11 @@ if (isset($_POST['entrar'])){
     $usuario = $_POST["usuario"];
     $password = $_POST["password"];
 
-
-
-    $sql = "SELECT * FROM usuario WHERE email = '$usuario' and contrasena = '$password'";
+    $sql = "SELECT usu.idusuario,usu.nombreusuario,usu.apellidousuario,niv.nombrenivelusuario
+            FROM usuario usu
+            INNER JOIN nivelusuario niv
+            on niv.idnivelusuario = usu.idnivelusuario
+            WHERE email='{$usuario}' and contrasena='{$password}'";
     $rs = mysql_query($sql);
     $n = mysql_num_rows($rs);
     $campo = mysql_fetch_array($rs);
@@ -18,6 +20,10 @@ if (isset($_POST['entrar'])){
     if (mysql_num_rows($rs) != 0) {
         session_start();
         $_SESSION["autentificado"] = "SI";
+        $_SESSION["nombreUsuario"] = $campo["nombreusuario"];
+        $_SESSION["apellidoUsuario"] = $campo["apellidousuario"];
+        $_SESSION["idUsuario"] = $campo["idusuario"];
+        $_SESSION["nivelUsuario"] = $campo["nombrenivelusuario"];
         header("Location: principal.php?");
     }
     else{

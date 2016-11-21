@@ -1,7 +1,15 @@
 <?php
 include_once('../../conexion.php');
 $link = Conectarse();
-$query_distrito = "SELECT * FROM restaurante r INNER JOIN distrito d on r.idDistrito = d.idDistrito";
+$query_distrito = " SELECT res.fotoPortada,res.nombreRestaurante, tres.nombreTipo, res.precioGeneral, res.direccionRestaurante, avg(votos) as Votos,res.idRestaurante 
+                  FROM ranking ran
+                  inner join restaurante res
+                  on res.idRestaurante = ran.idRestaurante
+                  inner join tipodetalle tde
+                  on tde.idRestaurante = res.idRestaurante
+                  inner join tiporestaurante tres
+                  on tres.idTipo = tde.idTipo
+                  GROUP BY  res.idRestaurante";
 
 
 ?>
@@ -10,24 +18,26 @@ $query_distrito = "SELECT * FROM restaurante r INNER JOIN distrito d on r.idDist
 
     <table class="table table-bordered table-responsive">
         <thead class="">
-        <tr>
+        <tr >
             <th>#</th>
             <th>Nombre</th>
             <th>Dirección</th>
-            <th>Distrito</th>
+            <th>Precio</th>
+            <th>Votos</th>
             <th>Foto de portada</th>
         </tr>
         </thead>
-        <tbody>
+        <tbody align="center">
         <?php
         $resultado_distrito = mysql_query($query_distrito) or die("Fallo la Consulta");
         while($busqueda = mysql_fetch_array($resultado_distrito)) {
         ?>
-        <tr>
+        <tr >
             <td scope="row"><?=$busqueda['idRestaurante']?></td>
             <td><?=$busqueda['nombreRestaurante']?></td>
             <td><?=$busqueda['direccionRestaurante']?></td>
-            <td><?=$busqueda['nombreDistrito']?></td>
+            <td><?=$busqueda['precioGeneral']?></td>
+            <td><?=$busqueda['Votos']?></td>
             <td align="center"><img style="width: 200px;height: 100px; " height="75em" src="../../images/frestaurants/<?=$busqueda['fotoPortada']?>" alt=""></td>
         </tr>
         <?php

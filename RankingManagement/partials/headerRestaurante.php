@@ -1,3 +1,6 @@
+<?php
+include_once('../../conexion.php');
+?>
 <header class="main-header">
     <div class="mod-logo">
         <a href="../../principal.php">
@@ -6,8 +9,8 @@
     </div>
     <nav class="mod-nav">
         <ul class="mod-menu">
-            <li class="mod-menu__item"><a class="mod-menu__link" href="#">Usuario</a></li>
-            <li class="mod-menu__item"><a class="mod-menu__link b" href="index.php">Login</a></li>
+            <li class="mod-menu__item"><a class="mod-menu__link" href="#"><?=$_SESSION["nombreUsuario"]." ".$_SESSION["apellidoUsuario"]?></a></li>
+            <li class="mod-menu__item"><a class="mod-menu__link b" href="../../control.php" name="salir">Salir</a></li>
         </ul>
     </nav>
 </header>
@@ -15,16 +18,19 @@
 <div class="nav-mixed menu">
     <nav class="single-nav menu">
         <ul>
-            <li><a href="../view/addRestaurante_view.php">Agregar Restaurante</a></li>
-            <li><a href="../view/listRestaurante_view.php">Listar Restaurante</a></li>
-            <li><a href="#">Modificar Restaurante</a></li>
-            <li><a href="../view/deleteRestaurante_view.php">Eliminar Restaurante</a></li>
+            <li><a href="#">Reserva</a></li>
+            <li><a href="../../RankingManagement/view/listRanking_view.php">Rankings</a></li>
+            <?php
+            if(isset($_SESSION["nivelUsuario"]) and ($_SESSION["nivelUsuario"] == "Administrador" or $_SESSION["nivelUsuario"] == "Restaurante")){
+                ?>
+                <li><a href="../../RestaurantManagement/view/listRestaurante_view.php">Gestión Restaurante</a></li>
+            <?php }?>
         </ul>
     </nav>
     <nav class="social-menu menu" role="navigation">
             <nav class="single-nav menu">
                 <ul>
-                    <li><a href="#"><span>Nombre Usuario</span></a></li>
+                    <li><a href="#"><span>otra cosa</span></a></li>
                 </ul>
             </nav>
     </nav>

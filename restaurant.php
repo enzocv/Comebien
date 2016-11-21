@@ -1,3 +1,8 @@
+<?php
+include_once("conexion.php");
+$link = Conectarse();
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -19,7 +24,7 @@
     <link rel="stylesheet" href="fancybox/source/helpers/jquery.fancybox-thumbs.css" type="text/css" media="screen" />
     <script type="text/javascript" src="fancybox/source/helpers/jquery.fancybox-thumbs.js"></script>
     <!--GALLERY STUFF END-->
-
+    <link rel="stylesheet" href="css/estilos_calificacion.css">
     <script>
         $(document).ready(function() {
             $(".fancybox").fancybox({
@@ -38,7 +43,7 @@
     </div>
     <nav class="mod-nav">
         <ul class="mod-menu">
-            <li class="mod-menu__item"><a class="mod-menu__link" href="#">Usuario</a></li>
+            <li class="mod-menu__item"><a class="mod-menu__link" href="#"><?=$_SESSION["nombreUsuario"]." ".$_SESSION["apellidoUsuario"]?></a></li>
             <li class="mod-menu__item"><a class="mod-menu__link b" href="#">Login</a></li>
         </ul>
     </nav>
@@ -48,24 +53,23 @@
     <nav class="single-nav menu">
         <ul>
             <li><a href="#">Reserva</a></li>
-            <li><a href="#">Elige</a></li>
-            <li><a href="#">Ofertas</a></li>
-            <li><a href="#">Rankings</a></li>
+            <li><a href="RankingManagement/view/listRanking_view.php">Rankings</a></li>
+            <?php
+            if(isset($_SESSION["nivelUsuario"]) and ($_SESSION["nivelUsuario"] == "Administrador" or $_SESSION["nivelUsuario"] == "Restaurante")){
+                ?>
+                <li><a href="RestaurantManagement/view/listRestaurante_view.php">Gestión Restaurante</a></li>
+            <?php }?>
         </ul>
     </nav>
     <nav class="social-menu menu" role="navigation">
-        <ul>
-            <li><a href="http://facebook.com"><span class="screen-reader-text">Facebook</span></a></li>
-            <li><a href="http://twitter.com"><span class="screen-reader-text">Twitter</span></a></li>
-            <li><a href="http://plus.google.com"><span class="screen-reader-text">Google Plus</span></a></li>
-            <li><a href="http://youtube.com"><span class="screen-reader-text">YouTube</span></a></li>
-        </ul>
+        <nav class="single-nav menu">
+            <ul>
+                <li><a href="#"><span>otra cosa</span></a></li>
+            </ul>
+        </nav>
     </nav>
 </div>
 <?php
-include_once("conexion.php");
-$link = Conectarse();
-
 $id_res = $_GET["id_res"];
 
 $instruccion = "SELECT * FROM restaurante WHERE idRestaurante = {$id_res}";
@@ -126,8 +130,37 @@ if ($datos) {
                     <p> <?=$dato["serviciosAdicionales"]?></p>
                 </div>
                 <div>
-                    <h4>Direcció:</h4>
+                    <h4>Dirección:</h4>
                     <p> <?=$dato["direccionRestaurante"]?></p>
+                </div>
+                <div>
+                    <h4>Calificalo:</h4>
+                    <form id="frmCalificacion" method="post" action="RankingManagement/controls/addRanking.php">
+                        <p class="clasificacion">
+                            <input id="radio1" type="radio" name="estrellas" value="10">
+                            <label for="radio1">★</label>
+                            <input id="radio2" type="radio" name="estrellas" value="9">
+                            <label for="radio2">★</label>
+                            <input id="radio3" type="radio" name="estrellas" value="8">
+                            <label for="radio3">★</label>
+                            <input id="radio4" type="radio" name="estrellas" value="7">
+                            <label for="radio4">★</label>
+                            <input id="radio5" type="radio" name="estrellas" value="6">
+                            <label for="radio5">★</label>
+                            <input id="radio6" type="radio" name="estrellas" value="5">
+                            <label for="radio6">★</label>
+                            <input id="radio7" type="radio" name="estrellas" value="4">
+                            <label for="radio7">★</label>
+                            <input id="radio8" type="radio" name="estrellas" value="3">
+                            <label for="radio8">★</label>
+                            <input id="radio9" type="radio" name="estrellas" value="2">
+                            <label for="radio9">★</label>
+                            <input id="radio10" type="radio" name="estrellas" value="1">
+                            <label for="radio10">★</label>
+                        </p>
+                        <input type="submit" name="calificar" value="Calificar">
+                        <input type="hidden" name="idRes" value="<?=$dato["idRestaurante"]?>">
+                    </form>
                 </div>
             </aside>
         </div>
