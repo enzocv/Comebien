@@ -24,14 +24,14 @@
 </header>
 
 <div class="nav-mixed menu">
-<!--    <nav class="single-nav menu">-->
-<!--        <ul>-->
-<!--            <li><a href="#">Reserva</a></li>-->
-<!--            <li><a href="#">Elige</a></li>-->
-<!--            <li><a href="#">Ofertas</a></li>-->
-<!--            <li><a href="#">Rankings</a></li>-->
-<!--        </ul>-->
-<!--    </nav>-->
+    <!--    <nav class="single-nav menu">-->
+    <!--        <ul>-->
+    <!--            <li><a href="#">Reserva</a></li>-->
+    <!--            <li><a href="#">Elige</a></li>-->
+    <!--            <li><a href="#">Ofertas</a></li>-->
+    <!--            <li><a href="#">Rankings</a></li>-->
+    <!--        </ul>-->
+    <!--    </nav>-->
     <nav class="social-menu menu" role="navigation">
         <ul>
             <li><a href="http://facebook.com"><span class="screen-reader-text">Facebook</span></a></li>
@@ -42,10 +42,23 @@
     </nav>
 
 </div>
-<section class="container" style="padding: 7.37em 0;">
-    <h2>Login</h2>
+<section class="container" style="padding: 4.3em 0;">
+    <h2>Registro de Usuario</h2>
 
-    <form class="form-horizontal" action="control.php" method="post" name="forml">
+    <form class="form-horizontal" action="agregarUsuario.php" method="post" name="forml">
+        <div class="form-group">
+            <label class="col-sm-2 control-label">Nombre</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" name="nombre"  id="inputPassword" id="usuario">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-2 control-label">Apellido</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" name="apellido"  id="inputPassword" id="usuario">
+
+            </div>
+        </div>
         <div class="form-group">
             <label class="col-sm-2 control-label">Email</label>
             <div class="col-sm-10">
@@ -61,8 +74,8 @@
         </div>
 
         <div class="form-group ">
-            <a href="registrarte.php" class="btn-link">¿No Cuentas con una Cuenta?</a>
-            <input class="btn btn-danger" type="submit" name="entrar" id="entrar" value="Entrar">
+            <a href="index.php" class="btn-link">Regresar al Login</a>
+            <input class="btn btn-danger" type="submit" name="entrar" id="entrar" value="Registrarte">
         </div>
     </form>
 

@@ -1,4 +1,5 @@
 <?php
+include_once ('seguridad.php');
 include_once('conexion.php');
 $link = Conectarse();
 
@@ -20,7 +21,7 @@ $link = Conectarse();
         <nav class="mod-nav">
             <ul class="mod-menu">
                 <li class="mod-menu__item"><a class="mod-menu__link" href="#">Usuario</a></li>
-                <li class="mod-menu__item"><a class="mod-menu__link b" href="index.php">Login</a></li>
+                <li class="mod-menu__item"><a class="mod-menu__link b" href="control.php?salir=si" name="salir">Salir</a></li>
             </ul>
         </nav>
     </header>
@@ -63,7 +64,7 @@ $link = Conectarse();
                             <input class="banner-input" type="date" name="fecha" id="fecha" placeholder="Cualquier fecha">
                         </div>
 
-                        <input type="submit" class="banner-button" value="Buscar">
+                        <input type="submit" class="banner-button" value="Buscar" name="buscar">
 
 
                     </form>
@@ -75,34 +76,29 @@ $link = Conectarse();
     <section class="container-options">
         <h2 class="options-title">Restaurante?</h2>
         <div class="l-container-options">
+
             <article class="options__article criolla opacity">
-                <h3>Criolla</h3>
-                <p>15 restaurantes</p>
+                <h3><a href="search.php?tipo=Criolla" STYLE="color: #FFF;">Criolla</a></h3>
             </article>
 
             <article class="options__article oriental opacity">
-                <h3>Oriental</h3>
-                <p>11 restaurantes</p>
+                <h3><a href="search.php?tipo=Oriental" STYLE="color: #FFF;">Oriental</a></h3>
             </article>
 
             <article class="options__article italiana opacity">
-                <h3>Italiana</h3>
-                <p>14 restaurantes</p>
+                <h3><a href="search.php?tipo=Italiana" STYLE="color: #FFF;">Italiana</a></h3>
             </article>
 
             <article class="options__article parrillas opacity">
-                <h3>Carnes y Parrillas</h3>
-                <p>17 restaurantes</p>
+                <h3><a href="search.php?tipo=Carna y Parrillas" STYLE="color: #FFF;">Carna y Parrillas</a></h3>
             </article>
 
             <article class="options__article marina opacity">
-                <h3 class="copy__options">Marina</h3>
-                <p class="copy__options">25 restaurantes</p>
+                <h3><a href="search.php?tipo=Marina" STYLE="color: #FFF;">Marina</a></h3>
             </article>
 
             <article class="options__article polleria opacity">
-                <h3>Polleria</h3>
-                <p>29 restaurantes</p>
+                <h3><a href="search.php?tipo=Polleria" STYLE="color: #FFF;">Polleria</a></h3>
             </article>
         </div>
     </section>
