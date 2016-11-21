@@ -32,7 +32,9 @@
 <body>
 <header class="main-header">
     <div class="mod-logo">
-        <img class="mod-logo__img" src="images/logo/logoext1.png" alt="">
+        <a href="principal.php">
+            <img class="mod-logo__img" src="images/logo/logoext1.png" alt="">
+        </a>
     </div>
     <nav class="mod-nav">
         <ul class="mod-menu">
@@ -60,15 +62,27 @@
         </ul>
     </nav>
 </div>
+<?php
+include_once("conexion.php");
+$link = Conectarse();
+
+$id_res = $_GET["id_res"];
+
+$instruccion = "SELECT * FROM restaurante WHERE idRestaurante = {$id_res}";
+$datos = mysql_query($instruccion);
+
+if ($datos) {
+    while ($dato = mysql_fetch_array($datos)) {
+
+?>
 <div class="main-reservation">
     <main class="restaurant-main">
         <div class="main-wrapper">
-            <h1>Restaurante Segudo Muelle</h1>
-            <img src="images/frestaurants/restaurant4.jpg" alt="">
-            <p><span>Cocina criolla</span>. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet delectus distinctio dolore eius eos error fugit ipsum, maxime minima.</p>
+            <h1><?=$dato["nombreRestaurante"]?></h1>
+            <img src="images/frestaurants/<?=$dato["fotoPortada"];?>" alt="">
+            <p><?=$dato["descripcionRestaurante"]?></p>
         </div>
     </main>
-
     <section class="restaurant-reservation">
        <div class="reservation-wrapper">
            <h3>Reserva Rápida</h3>
@@ -79,6 +93,49 @@
        </div>
     </section>
 </div>
+
+<section class="restaurant-menu">
+    <div class="menu-wrapper">
+        <h2>Menú</h2>
+        <div class="menu-container">
+            <?php $carta = nl2br(htmlentities($dato["cartaRestaurante"], ENT_QUOTES, 'UTF-8')); ?>
+            <p><?=$carta?></p>
+        </div>
+    </div>
+
+</section>
+
+<section class="restaurant-description">
+    <div class="description-wrapper">
+        <article class="description-container">
+            <h2>Descripción</h2>
+            <p><?=$dato["detalleRestaurante"]?></p>
+        </article >
+        <div class="qualities-map">
+            <aside class="restaurant-qualities">
+                <div>
+                    <h4>Capacidad:</h4>
+                    <p> <?=$dato["capacidad"]?></p>
+                </div>
+                <div>
+                    <h4>Ocasiones:</h4>
+                    <p> <?=$dato["ocasiones"]?></p>
+                </div>
+                <div>
+                    <h4>Servicios adicionales:</h4>
+                    <p> <?=$dato["serviciosAdicionales"]?></p>
+                </div>
+                <div>
+                    <h4>Direcció:</h4>
+                    <p> <?=$dato["direccionRestaurante"]?></p>
+                </div>
+            </aside>
+        </div>
+    </div>
+</section>
+<?php }
+    } ?>
+
 
 <section class="restaurant-img">
     <div class="img-wrapper">
@@ -91,7 +148,7 @@
                 <img src="images/food/rfood4-thumpnail.jpg" alt="" />
             </a>
             <a class="fancybox" rel="gallery1" href="images/food/rfood1.jpg">
-            <img src="images/food/rfood1-thumpnail.jpg" alt="" />
+                <img src="images/food/rfood1-thumpnail.jpg" alt="" />
             </a>
             <a class="fancybox" rel="gallery1" href="images/food/rfood2.jpg">
                 <img src="images/food/rfood2-thumpnail.jpg" alt="" />
@@ -99,65 +156,6 @@
         </div>
     </div>
 </section>
-
-<section class="restaurant-menu">
-    <div class="menu-wrapper">
-        <h2>Menú</h2>
-        <div class="menu-container">
-            <h3>Carta Regular</h3>
-            <h4>desde S/.35</h4>
-            <ul>
-                <li class="menu-title">Entradas
-                <li>Ceviche Polo Marino <span>S/.20</span>
-                <li>Tiradito Oriental <span>S/.25</span>
-                <li>Ocopa de Camarones <span>S/.29</span>
-                <li class="menu-title">Platos
-                <li>Ceviche Polo Marino <span>S/.35</span>
-                <li>Tiradito Oriental <span>S/.43</span>
-                <li>Ocopa de Camarones <span>S/.55</span>
-                <li class="menu-title">Postres
-                <li>Ceviche Polo Marino <span>S/.10</span>
-                <li>Tiradito Oriental <span>S/.13</span>
-                <li>Ocopa de Camarones <span>S/.11</span>
-            </ul>
-        </div>
-    </div>
-    
-</section>
-
-<section class="restaurant-description">
-    <div class="description-wrapper">
-        <article class="description-container">
-            <h2>Descripción</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto cum expedita illum mollitia quod. Ab corporis cupiditate delectus ea eaque error, et facere itaque minima molestiae nisi porro quod sequi.</p>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto cum expedita illum mollitia quod. Ab corporis cupiditate delectus ea eaque error, et facere itaque minima molestiae nisi porro quod sequi. Lorem ipsum dolor sit amet, consectetur adipisicing elit. A ratione reprehenderit sapiente. Deleniti est nam sit. Aliquid, dignissimos doloremque dolorum expedita fugit, hic in labore officia quisquam repudiandae, vel veritatis.</p>
-        </article >
-        <div class="qualities-map">
-            <aside class="restaurant-qualities">
-                <div>
-                    <h4>Capacidad:</h4>
-                    <p>80 personas</p>
-                </div>
-                <div>
-                    <h4>Ocasiones:</h4>
-                    <p>Románticos, negocios.</p>
-                </div>
-                <div>
-                    <h4>Servicios adicionales:</h4>
-                    <p>Wi-fi, Bar</p>
-                </div>
-            </aside>
-            <div class="restaurant-map">
-                <div class="map-container"></div>
-                <div class="map-container">
-                    <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script><div class="map-w"><div id="gmap_canvas" class="map-c"></div><style>#gmap_canvas img{max-width:none!important;background:none!important}</style></div><script type="text/javascript"> function init_map(){var myOptions = {zoom:17,center:new google.maps.LatLng(-18.0066826876426,-70.24558209007415),mapTypeId: google.maps.MapTypeId.ROADMAP};map = new google.maps.Map(document.getElementById("gmap_canvas"), myOptions);marker = new google.maps.Marker({map: map,position: new google.maps.LatLng(-18.0066826876426, -70.24558209007415)});infowindow = new google.maps.InfoWindow({content:"<b></b>Segundo Muelle<br/> Tacna" });google.maps.event.addListener(marker, "click", function(){infowindow.open(map,marker);});infowindow.open(map,marker);}google.maps.event.addDomListener(window, 'load', init_map);</script>
-                </div>
-                <p>Calle Dos de Mayo 512, Tacna</p>
-            </div>
-        </div>
-    </div>
-</section>
-
 
 <footer class="main-footer">
     <h3 class="footer-title">Come Bien</h3>

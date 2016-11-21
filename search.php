@@ -2,21 +2,30 @@
     include_once ('conexion.php');
     $link = Conectarse();
 
-    $tipoCocina = $_POST["tipoCocina"];
-    $locacion   = $_POST["locacion"];
+    if (isset($_POST["buscar"])){
+        $tipoCocina = $_POST["tipoCocina"];
+        $locacion   = $_POST["locacion"];
 
-    $feha = mysql_real_escape_string($_POST['fecha']);
-    $feha = date("d-m-Y", strtotime($feha));
+        $feha = mysql_real_escape_string($_POST['fecha']);
+        $feha = date("d-m-Y", strtotime($feha));
 
-    if($locacion == ""){
+        if($locacion == ""){
+            $locacion = "Tacna";
+        }
+        if($tipoCocina == ""){
+            $tipoCocina = "Marina";
+        }
+        if($feha == "01-01-1970"){
+            $feha = date("d/m/Y");
+        }
+    }
+    else{
+        $tipoCocina = $_GET["tipo"];
         $locacion = "Tacna";
-    }
-    if($tipoCocina == ""){
-        $tipoCocina = "Marina";
-    }
-    if($feha == "01-01-1970"){
+
         $feha = date("d/m/Y");
     }
+
 
     $consulta = "SELECT * FROM tipodetalle tdeta inner join restaurante res on res.idRestaurante = tdeta.idRestaurante
                 inner join tiporestaurante tres on tres.idTipo = tdeta.idTipo inner join distrito dis 
@@ -140,7 +149,7 @@
                             <p class="search-restaurant__info--calification"><span
                                         class="stars">&star;&star;&star;</span>calificacón</p>
                             <p class="search-restaurant__info--precio"><span class="desde">desde</span><?=$busqueda['precioGeneral']?></p>
-                            <a class="search-restaurant__info--more" href="restaurant.php">Leer más..</a>
+                            <a class="search-restaurant__info--more" href="restaurant.php?id_res=<?=$busqueda['idRestaurante']?>">Leer más..</a>
                         </div>
                     </section>
                 </article>
