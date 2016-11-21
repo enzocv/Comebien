@@ -107,201 +107,95 @@ $link = Conectarse();
         <h3 class="featured-title">Lugares Top de Hoy</h3>
 
         <div class="l-container__featured">
-
+            <?php
+            $instruccion = "SELECT res.fotoPortada,res.nombreRestaurante, tres.nombreTipo, res.precioGeneral,
+                              res.direccionRestaurante, avg(votos) as Votos,res.idRestaurante 
+                              FROM ranking ran
+                              inner join restaurante res
+                              on res.idRestaurante = ran.idRestaurante
+                              inner join tipodetalle tde
+                              on tde.idRestaurante = res.idRestaurante
+                              inner join tiporestaurante tres
+                              on tres.idTipo = tde.idTipo
+                              GROUP BY  res.idRestaurante
+                              limit 0,3";
+            $rs = mysql_query($instruccion) or die("Fallo la Consulta");
+            while($busqueda = mysql_fetch_array($rs)) {
+            ?>
             <article class="featured-box">
                 <div class="copy">
-                    <img  class="copy__img" src="images/frestaurants/restaurant3.jpg" alt="">
-                    <p class="copy__restaurant">Nombre Restaurante</p>
-                    <p class="copy__place">Lugar</p>
+                    <img  class="copy__img" src="images/frestaurants/<?=$busqueda["fotoPortada"]?>" alt="">
+                    <p class="copy__restaurant"><?=$busqueda["nombreRestaurante"]?></p>
+                    <p class="copy__place"><?=$busqueda["direccionRestaurante"]?></p>
                 </div>
                 <div class="copy__info">
-                    <span>&star;&star;&star;&star;&star;</span>
-                    <p class="feature-precio">precio</p>
-                    <button class="featured-button">Reservar</button>
+                    <span style="color: crimson;">
+                    <?php
+                    for ($i = 1; $i <= $busqueda["Votos"]; $i++) {
+                    ?>
+                        &star;
+                    <?php }?>
+                    </span>
+                    <p class="feature-precio" style="color: rgba(5,5,5,0.88);">S/. <?php echo " ".$busqueda["precioGeneral"];?></p>
+                    <a href="restaurant.php?id_res=<?=$busqueda["idRestaurante"]?>" class="featured-button">Reservar</a>
                 </div>
 
             </article>
-
-            <article class="featured-box">
-                <div class="copy">
-                    <img  class="copy__img" src="images/frestaurants/restaurant4.jpg" alt="">
-                    <p class="copy__restaurant">Nombre Restaurante</p>
-                    <p class="copy__place">Lugar</p>
-                </div>
-                <div class="copy__info">
-                    <span>&star;&star;&star;&star;</span>
-                    <p class="feature-precio">precio</p>
-                    <button class="featured-button">Reservar</button>
-                </div>
-
-            </article>
-            <article class="featured-box">
-                <div class="copy">
-                    <img  class="copy__img" src="images/frestaurants/restaurant6.jpg" alt="">
-                    <p class="copy__restaurant">Nombre Restaurante</p>
-                    <p class="copy__place">Lugar</p>
-                </div>
-                <div class="copy__info">
-                    <span>&star;&star;&star;</span>
-                    <p class="feature-precio">precio</p>
-                    <button class="featured-button">Reservar</button>
-                </div>
-
-            </article>
+            <?php } ?>
         </div>
     </section>
 
-    <section class="container-rankings">
-        <div class="l-container-rankings">
-            <h3 class="rankings-title">MÁS VENDIDOS</h3>
-            <img src="images/frestaurants/restaurant5.jpg" alt="" class="rankings-img">
-            <div>
-                <article>
-                    <p class="rankings-index">#1</p>
-                    <a href="#">Costa Verde</a>
-                    <p>Peruana,Barranco</p>
-                    <span>S/. 54.50</span>
-                    <span class="rankings-score">8.9</span>
-                </article>
-            </div>
-            <div>
-                <article>
-                    <p class="rankings-index">#2</p>
-                    <a href="#">nombre restaurante</a>
-                    <p>ubicacion</p>
-                    <span>S/. 54.50</span>
-                    <span>8.9</span>
-                </article>
-            </div>
-            <div>
-                <article>
-                    <p class="rankings-index">#3</p>
-                    <a href="#">nombre restaurante</a>
-                    <p>ubicacion</p>
-                    <span>S/. 54.50</span>
-                    <span>8.9</span>
-                </article>
-            </div>
-            <div>
-                <article>
-                    <p class="rankings-index">#4</p>
-                    <a href="#">nombre restaurante</a>
-                    <p>ubicacion</p>
-                    <span>S/. 54.50</span>
-                    <span>8.9</span>
-                </article>
-            </div>
-            <div>
-                <article>
-                    <p class="rankings-index">#5</p>
-                    <a href="#">nombre restaurante</a>
-                    <p>ubicacion</p>
-                    <span>S/. 54.50</span>
-                    <span>8.9</span>
-                </article>
-            </div>
-        </div>
-
-        <div class="l-container-rankings">
-            <h3 class="rankings-title">MÁS VALORADOS</h3>
-            <img src="images/frestaurants/restaurant6.jpg" alt="" class="rankings-img">
-            <div>
-                <article>
-                    <p class="rankings-index">8.9</p>
-                    <a href="#">Costa Verde</a>
-                    <p>Peruana,Barranco</p>
-                    <span>S/. 54.50</span>
-                    <span>&star;&star;&star;</span>
-                </article>
-            </div>
-            <div>
-                <article>
-                    <p class="rankings-index">8.7</p>
-                    <a href="#">nombre restaurante</a>
-                    <p>ubicacion</p>
-                    <span>S/. 52.90</span>
-                    <span>&star;&star;&star;</span>
-                </article>
-            </div>
-            <div>
-                <article>
-                    <p class="rankings-index">7.5</p>
-                    <a href="#">nombre restaurante</a>
-                    <p>ubicacion</p>
-                    <span>S/. 54.50</span>
-                    <span>&star;&star;&star;</span>
-                </article>
-            </div>
-            <div>
-                <article>
-                    <p class="rankings-index">7.2</p>
-                    <a href="#">nombre restaurante</a>
-                    <p>ubicacion</p>
-                    <span>S/. 52.90</span>
-                    <span>&star;&star;&star;</span>
-                </article>
-            </div>
-            <div>
-                <article>
-                    <p class="rankings-index">7.1</p>
-                    <a href="#">nombre restaurante</a>
-                    <p>ubicacion</p>
-                    <span>S/. 54.50</span>
-                    <span>&star;&star;&star;</span>
-                </article>
-            </div>
-        </div>
-
-        <div class="l-container-rankings">
-            <h3 class="rankings-title">MEJORES PRECIOS</h3>
-            <img src="images/frestaurants/restaurant4.jpg" alt="" class="rankings-img">
-            <div>
-                <article>
-                    <p class="rankings-index">40%</p>
-                    <a href="#">Costa Verde</a>
-                    <p>Peruana,Barranco</p>
-                    <span>S/. 54.50</span>
-                    <span>8.9</span>
-                </article>
-            </div>
-            <div>
-                <article>
-                    <p class="rankings-index">38%</p>
-                    <a href="#">nombre restaurante</a>
-                    <p>ubicacion</p>
-                    <span>S/. 54.50</span>
-                    <span>8.9</span>
-                </article>
-            </div>
-            <div>
-                <article>
-                    <p class="rankings-index">30%</p>
-                    <a href="#">nombre restaurante</a>
-                    <p>ubicacion</p>
-                    <span>S/. 54.50</span>
-                    <span>8.9</span>
-                </article>
-            </div>
-            <div>
-                <article>
-                    <p class="rankings-index">20%</p>
-                    <a href="#">nombre restaurante</a>
-                    <p>ubicacion</p>
-                    <span>S/. 54.50</span>
-                    <span>8.9</span>
-                </article>
-            </div>
-            <div>
-                <article>
-                    <p class="rankings-index">20%</p>
-                    <a href="#">nombre restaurante</a>
-                    <p>ubicacion</p>
-                    <span>S/. 54.50</span>
-                    <span>8.9</span>
-                </article>
-            </div>
-        </div>
-    </section>
+<!--    <section class="container-rankings">-->
+<!--        <div class="l-container-rankings">-->
+<!--            <h3 class="rankings-title">MÁS VENDIDOS</h3>-->
+<!--            <img src="images/frestaurants/restaurant5.jpg" alt="" class="rankings-img">-->
+<!--            <div>-->
+<!--                <article>-->
+<!--                    <p class="rankings-index">#1</p>-->
+<!--                    <a href="#">Costa Verde</a>-->
+<!--                    <p>Peruana,Barranco</p>-->
+<!--                    <span>S/. 54.50</span>-->
+<!--                    <span class="rankings-score">8.9</span>-->
+<!--                </article>-->
+<!--            </div>-->
+<!--            <div>-->
+<!--                <article>-->
+<!--                    <p class="rankings-index">#2</p>-->
+<!--                    <a href="#">nombre restaurante</a>-->
+<!--                    <p>ubicacion</p>-->
+<!--                    <span>S/. 54.50</span>-->
+<!--                    <span>8.9</span>-->
+<!--                </article>-->
+<!--            </div>-->
+<!--            <div>-->
+<!--                <article>-->
+<!--                    <p class="rankings-index">#3</p>-->
+<!--                    <a href="#">nombre restaurante</a>-->
+<!--                    <p>ubicacion</p>-->
+<!--                    <span>S/. 54.50</span>-->
+<!--                    <span>8.9</span>-->
+<!--                </article>-->
+<!--            </div>-->
+<!--            <div>-->
+<!--                <article>-->
+<!--                    <p class="rankings-index">#4</p>-->
+<!--                    <a href="#">nombre restaurante</a>-->
+<!--                    <p>ubicacion</p>-->
+<!--                    <span>S/. 54.50</span>-->
+<!--                    <span>8.9</span>-->
+<!--                </article>-->
+<!--            </div>-->
+<!--            <div>-->
+<!--                <article>-->
+<!--                    <p class="rankings-index">#5</p>-->
+<!--                    <a href="#">nombre restaurante</a>-->
+<!--                    <p>ubicacion</p>-->
+<!--                    <span>S/. 54.50</span>-->
+<!--                    <span>8.9</span>-->
+<!--                </article>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </section>-->
 
     <footer class="main-footer">
         <h3 class="footer-title">Come Bien</h3>
