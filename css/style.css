@@ -114,7 +114,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: sans-serif; }
+  font-family: 'Roboto', sans-serif; }
 
 mark {
   background: #ff0;
@@ -624,7 +624,7 @@ img {
         justify-content: center;
     -ms-flex-align: center;
         align-items: center; }
-    .container-options .l-container-options a .options__article {
+    .container-options .l-container-options .options__article {
       width: 100%;
       height: 150px;
       margin: 0 .4em 1em;
@@ -640,13 +640,13 @@ img {
       -ms-flex-pack: center;
           justify-content: center; }
       @media screen and (min-width: 480px) {
-        .container-options .l-container-options a .options__article {
+        .container-options .l-container-options .options__article {
           width: 30%;
           font-size: .8em; } }
       @media screen and (min-width: 768px) {
-        .container-options .l-container-options a .options__article {
+        .container-options .l-container-options .options__article {
           font-size: 1em; } }
-      .container-options .l-container-options a .options__article > h3, .container-options .l-container-options a .options__article > p {
+      .container-options .l-container-options .options__article > h3, .container-options .l-container-options .options__article > p {
         z-index: 20; }
 
 .screen-reader-text {
