@@ -25,11 +25,9 @@
 
         $feha = date("d/m/Y");
     }
-
-
     $consulta = "SELECT * FROM tipodetalle tdeta inner join restaurante res on res.idRestaurante = tdeta.idRestaurante
-                inner join tiporestaurante tres on tres.idTipo = tdeta.idTipo inner join distrito dis 
-                on dis.idDistrito = res.idDistrito 
+                inner join tiporestaurante tres on tres.idTipo = tdeta.idTipo inner join distrito dis
+                on dis.idDistrito = res.idDistrito
                 where tres.nombreTipo = '{$tipoCocina}' AND dis.nombreDistrito = '{$locacion}'";
 
 ?>
@@ -47,7 +45,9 @@
 <body>
     <header class="main-header">
         <div class="mod-logo">
-            <img class="mod-logo__img" src="images/logo/logoext1.png" alt="">
+            <a href="principal.php">
+                <img class="mod-logo__img" src="images/logo/logoext1.png" alt="">
+            </a>
         </div>
         <nav class="mod-nav">
             <ul class="mod-menu">
@@ -133,7 +133,7 @@
             </div>
         </div>
     </section>
-    
+
     <main class="search-main">
         <section class="search-restaurants">
             <?php

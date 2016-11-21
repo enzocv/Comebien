@@ -32,7 +32,7 @@ $link = Conectarse();
                 <li><a href="#">Reserva</a></li>
                 <li><a href="#">Elige</a></li>
                 <li><a href="#">Ofertas</a></li>
-                <li><a href="#">Rankings</a></li>
+                <li><a href="ranking_view.php">Rankings</a></li>
                 <li><a href="RestaurantManagement/view/listRestaurante_view.php">Gestión Restaurante</a></li>
             </ul>
         </nav>
@@ -57,7 +57,24 @@ $link = Conectarse();
                         </div>
                         <div class="banner-option">
                             <label class="banner-label" for="tipo-cocina">¿Qué tipo de cocina?</label>
-                            <input class="banner-input" type="text" name="tipoCocina" id="tipo-cocina" placeholder="Todos los tipos">
+                            <select name="tipoCocina" id="tipoCocina" class="banner-input">
+                                <?php
+
+                                $query_tipo = "SELECT * FROM tipoRestaurante";
+                                $resultado_tipo = mysql_query($query_tipo);
+
+                                if ($resultado_tipo) {
+                                    while ($campo_tipo = mysql_fetch_array($resultado_tipo)) {
+                                        $nombre = $campo_tipo['nombreTipo'];
+                                        $id_tipo = $campo_tipo['idTipo'];
+
+                                        echo "<option value=".$nombre.">".$nombre."</option>\n";
+                                    }
+                                    mysql_close();
+                                }
+                                ?>
+                            </select>
+<!--                            <input class="banner-input" type="text" name="tipoCocina" id="tipo-cocina" placeholder="Todos los tipos">-->
                         </div>
                         <div class="banner-option">
                             <label class="banner-label" for="fecha">¿Qué tipo de cocina?</label>
