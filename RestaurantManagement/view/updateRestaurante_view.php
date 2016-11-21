@@ -17,7 +17,7 @@
         <?php include_once('../partials/headerRestaurante.php');?>
 
 <!--   BODY      -->
-        <?php include_once('../partials/formAddRestaurant.php');?>
+        <?php include_once('../partials/formUpdateRestaurant.php');?>
 
 
 <!--   FOOTER      -->

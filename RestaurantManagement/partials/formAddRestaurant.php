@@ -8,7 +8,7 @@ $resultado_distrito = mysql_query($query_distrito);
 ?>
 <div class="container" style="padding: 1em 0;">
     <h2 class="" style="padding: 0 0 .5em">Gestion de Restaurante</h2>
-    <form action="../addRestaurant.php" method="POST" enctype="multipart/form-data">
+    <form action="../controls/addRestaurant.php" method="POST" enctype="multipart/form-data">
         <div class="form-group">
             <label for="nameRestaurant" class="control-label">Nombre Restaurante:</label>
             <input type="text" name="nameRestaurant" id="nameRestaurant" class="form-control">
