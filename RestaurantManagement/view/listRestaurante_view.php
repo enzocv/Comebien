@@ -10,17 +10,17 @@
     <link rel="stylesheet" href="../../css/bootstrap.min.css">
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
 
-    <title>ComeBien|Agregar Restaurante</title>
+    <title>ComeBien|Listar Restaurante</title>
 </head>
-    <body>
+<body>
 <!--   HEADER      -->
-        <?php include_once('../partials/headerRestaurante.php');?>
+<?php include_once('../partials/headerRestaurante.php');?>
 
 <!--   BODY      -->
-        <?php include_once('../partials/formAddRestaurant.php');?>
+<?php include_once('../partials/formListRestaurant.php');?>
 
 
 <!--   FOOTER      -->
-        <?php include_once('../partials/footerRestaurant.php');?>
-    </body>
+<?php include_once('../partials/footerRestaurant.php');?>
+</body>
 </html>

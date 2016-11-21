@@ -32,7 +32,7 @@ $link = Conectarse();
                 <li><a href="#">Elige</a></li>
                 <li><a href="#">Ofertas</a></li>
                 <li><a href="#">Rankings</a></li>
-                <li><a href="RestaurantManagement/view/addRestaurante_view.php">Agregar Restaurante</a></li>
+                <li><a href="RestaurantManagement/view/listRestaurante_view.php">Gestión Restaurante</a></li>
             </ul>
         </nav>
         <nav class="social-menu menu" role="navigation">

@@ -1,6 +1,8 @@
 <header class="main-header">
     <div class="mod-logo">
-        <img class="mod-logo__img" src="../../images/logo/logoext1.png" alt="">
+        <a href="../../principal.php">
+            <img class="mod-logo__img" src="../../images/logo/logoext1.png" alt="">
+        </a>
     </div>
     <nav class="mod-nav">
         <ul class="mod-menu">
@@ -13,10 +15,10 @@
 <div class="nav-mixed menu">
     <nav class="single-nav menu">
         <ul>
-            <li><a href="#">Reserva</a></li>
-            <li><a href="#">Elige</a></li>
-            <li><a href="#">Ofertas</a></li>
-            <li><a href="#">Rankings</a></li>
+            <li><a href="../view/addRestaurante_view.php">Agregar Restaurante</a></li>
+            <li><a href="../view/listRestaurante_view.php">Listar Restaurante</a></li>
+            <li><a href="#">Modificar Restaurante</a></li>
+            <li><a href="../view/deleteRestaurante_view.php">Eliminar Restaurante</a></li>
         </ul>
     </nav>
     <nav class="social-menu menu" role="navigation">
