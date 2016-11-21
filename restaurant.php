@@ -88,7 +88,7 @@ if ($datos) {
            <h3>Reserva Rápida</h3>
             <input class="banner-input" type="date" id="date-picker" placeholder="Cualquier fecha">
             <input class="banner-input" type="datetime" id="time" placeholder="00:00">
-            <input class="banner-input" type="number" id="people" placeholder="N° Personas">
+            <input class="banner-input" type="number" id="people" placeholder="N° Personas" min="0" max="<?=$dato["capacidad"]?>">
            <input class="banner-button" type="button" value="RESERVAR">
        </div>
     </section>

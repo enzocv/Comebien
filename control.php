@@ -21,7 +21,7 @@ if (isset($_POST['entrar'])){
         header("Location: principal.php?");
     }
     else{
-        header("Location: search.php");
+        header("Location: index.php");
     }
     mysql_free_result($rs);
     mysql_close();

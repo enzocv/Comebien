@@ -30,8 +30,6 @@ $link = Conectarse();
         <nav class="single-nav menu">
             <ul>
                 <li><a href="#">Reserva</a></li>
-                <li><a href="#">Elige</a></li>
-                <li><a href="#">Ofertas</a></li>
                 <li><a href="ranking_view.php">Rankings</a></li>
                 <li><a href="RestaurantManagement/view/listRestaurante_view.php">Gestión Restaurante</a></li>
             </ul>
@@ -68,7 +66,7 @@ $link = Conectarse();
                                         $nombre = $campo_tipo['nombreTipo'];
                                         $id_tipo = $campo_tipo['idTipo'];
 
-                                        echo "<option value=".$nombre.">".$nombre."</option>\n";
+                                        echo "<option value='{$nombre}'>".$nombre."</option>\n";
                                     }
                                     mysql_close();
                                 }
@@ -125,6 +123,7 @@ $link = Conectarse();
 
         <div class="l-container__featured">
             <?php
+            $link = Conectarse();
             $instruccion = "SELECT res.fotoPortada,res.nombreRestaurante, tres.nombreTipo, res.precioGeneral,
                               res.direccionRestaurante, avg(votos) as Votos,res.idRestaurante 
                               FROM ranking ran
@@ -158,7 +157,7 @@ $link = Conectarse();
                 </div>
 
             </article>
-            <?php } ?>
+            <?php } mysql_close();?>
         </div>
     </section>
 

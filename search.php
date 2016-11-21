@@ -18,6 +18,7 @@
         if($feha == "01-01-1970"){
             $feha = date("d/m/Y");
         }
+
     }
     else{
         $tipoCocina = $_GET["tipo"];
@@ -29,6 +30,7 @@
                 inner join tiporestaurante tres on tres.idTipo = tdeta.idTipo inner join distrito dis
                 on dis.idDistrito = res.idDistrito
                 where tres.nombreTipo = '{$tipoCocina}' AND dis.nombreDistrito = '{$locacion}'";
+
 
 ?>
 
@@ -133,7 +135,6 @@
             </div>
         </div>
     </section>
-
     <main class="search-main">
         <section class="search-restaurants">
             <?php
