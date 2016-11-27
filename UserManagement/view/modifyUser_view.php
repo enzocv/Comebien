@@ -14,14 +14,14 @@ session_start();
     <link rel="stylesheet" href="../../css/bootstrap.min.css">
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
 
-    <title>ComeBien|Listar Reservas</title>
+    <title>ComeBien|Modificar Cuenta</title>
 </head>
 <body>
 <!--   HEADER      -->
 <?php include_once('../partials/headerUser.php');?>
 
 <!--   BODY      -->
-<?php include_once('../partials/tableReservationUser.php');?>
+<?php include_once('../partials/modifyUser.php');?>
 
 
 <!--   FOOTER      -->

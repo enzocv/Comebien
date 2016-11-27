@@ -11,7 +11,9 @@ if (isset($_POST['entrar'])){
             FROM usuario usu
             INNER JOIN nivelusuario niv
             on niv.idnivelusuario = usu.idnivelusuario
-            WHERE email='{$usuario}' and contrasena='{$password}'";
+            INNER JOIN estadousuario esta
+            ON esta.idestadousuario = usu.idestadousuario
+            WHERE email='{$usuario}' and contrasena='{$password}' AND esta.nombreestado = 'Activo' ";
     $rs = mysql_query($sql);
     $n = mysql_num_rows($rs);
     $campo = mysql_fetch_array($rs);

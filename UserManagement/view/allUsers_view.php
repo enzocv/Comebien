@@ -14,7 +14,7 @@ session_start();
     <link rel="stylesheet" href="../../css/bootstrap.min.css">
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
 
-    <title>ComeBien|Listar Reservas</title>
+    <title>ComeBien|Listar Usuarios</title>
 </head>
 <body>
 <!--   HEADER      -->

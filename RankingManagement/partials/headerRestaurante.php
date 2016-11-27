@@ -31,7 +31,7 @@ include_once('../../conexion.php');
     <nav class="social-menu menu" role="navigation">
             <nav class="single-nav menu">
                 <ul>
-                    <li><a href="#"><span>Mi Cuenta</span></a></li>
+                    <li><a href="../../UserManagement/view/modifyUser_view.php"><span>Mi Cuenta</span></a></li>
                 </ul>
             </nav>
     </nav>

@@ -21,6 +21,11 @@
             if(isset($_SESSION["nivelUsuario"]) and ($_SESSION["nivelUsuario"] == "Administrador" or $_SESSION["nivelUsuario"] == "Restaurante")){
                 ?>
                 <li><a href="RestaurantManagement/view/listRestaurante_view.php">Gestión Restaurante</a></li>
+                <li><a href="UserManagement/view/allUsers_view.php">Gestión Usuario</a></li>
+            <?php }
+                if(isset($_SESSION["nivelUsuario"]) and ($_SESSION["nivelUsuario"] == "Usuario")){
+            ?>
+                    <li><a href="UserManagement/view/modifyUser_view.php">Mi Cuenta</a></li>
             <?php }?>
         </ul>
     </nav>
