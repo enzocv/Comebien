@@ -14,38 +14,8 @@ $link = Conectarse();
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
 </head>
 <body>
-    <header class="main-header">
-        <div class="mod-logo">
-            <img class="mod-logo__img" src="images/logo/logoext1.png" alt="">
-        </div>
-        <nav class="mod-nav">
-            <ul class="mod-menu">
-                <li class="mod-menu__item"><a class="mod-menu__link" href="#"><?=$_SESSION["nombreUsuario"]." ".$_SESSION["apellidoUsuario"]?></a></li>
-                <li class="mod-menu__item"><a class="mod-menu__link b" href="control.php?salir=si" name="salir">Salir</a></li>
-            </ul>
-        </nav>
-    </header>
 
-    <div class="nav-mixed menu">
-        <nav class="single-nav menu">
-            <ul>
-                <li><a href="#">Reserva</a></li>
-                <li><a href="RankingManagement/view/listRanking_view.php">Rankings</a></li>
-                <?php
-                    if(isset($_SESSION["nivelUsuario"]) and ($_SESSION["nivelUsuario"] == "Administrador" or $_SESSION["nivelUsuario"] == "Restaurante")){
-                ?>
-                    <li><a href="RestaurantManagement/view/listRestaurante_view.php">Gestión Restaurante</a></li>
-                <?php }?>
-            </ul>
-        </nav>
-        <nav class="social-menu menu" role="navigation">
-                <nav class="single-nav menu">
-                    <ul>
-                        <li><a href="#"><span>otra cosa</span></a></li>
-                    </ul>
-                </nav>
-        </nav>
-    </div>
+    <?php include_once ('header_public.php');?>
 
     <main class="main opacity">
         <div class="copy-main">
@@ -129,7 +99,7 @@ $link = Conectarse();
             <?php
             $link = Conectarse();
             $instruccion = "SELECT res.fotoPortada,res.nombreRestaurante, tres.nombreTipo, res.precioGeneral,
-                              res.direccionRestaurante, avg(votos) as Votos,res.idRestaurante 
+                              res.direccionRestaurante, avg(votos) as Votos,res.idRestaurante,res.idRestaurante
                               FROM ranking ran
                               inner join restaurante res
                               on res.idRestaurante = ran.idRestaurante
@@ -144,7 +114,9 @@ $link = Conectarse();
             ?>
             <article class="featured-box">
                 <div class="copy">
-                    <img  class="copy__img" src="images/frestaurants/<?=$busqueda["fotoPortada"]?>" alt="">
+                    <a href="restaurant.php?id_res=<?=$busqueda["idRestaurante"]?>">
+                        <img  class="copy__img" src="images/frestaurants/<?=$busqueda["fotoPortada"]?>" alt="">
+                    </a>
                     <p class="copy__restaurant"><?=$busqueda["nombreRestaurante"]?></p>
                     <p class="copy__place"><?=$busqueda["direccionRestaurante"]?></p>
                 </div>

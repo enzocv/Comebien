@@ -19,7 +19,11 @@ $query_distrito = " SELECT res.fotoPortada,res.nombreRestaurante, tres.nombreTip
     <table class="table table-bordered table-responsive">
         <thead class="">
         <tr >
+            <?php
+                if($_SESSION["nivelUsuario"] == "Administrador" or $_SESSION["nivelUsuario"] == "Restaurante"){
+            ?>
             <th>#</th>
+            <?php } ?>
             <th>Nombre</th>
             <th>Dirección</th>
             <th>Precio</th>
@@ -32,13 +36,24 @@ $query_distrito = " SELECT res.fotoPortada,res.nombreRestaurante, tres.nombreTip
         $resultado_distrito = mysql_query($query_distrito) or die("Fallo la Consulta");
         while($busqueda = mysql_fetch_array($resultado_distrito)) {
         ?>
-        <tr >
+        <tr>
+            <?php
+                if($_SESSION["nivelUsuario"] == "Administrador" or $_SESSION["nivelUsuario"] == "Restaurante"){
+            ?>
             <td scope="row"><?=$busqueda['idRestaurante']?></td>
-            <td><?=$busqueda['nombreRestaurante']?></td>
+            <?php } ?>
+            <td><a href="../../restaurant.php?id_res=<?=$busqueda['idRestaurante']?>"><?=$busqueda['nombreRestaurante']?></a></td>
             <td><?=$busqueda['direccionRestaurante']?></td>
             <td><?=$busqueda['precioGeneral']?></td>
-            <td><?=$busqueda['Votos']?></td>
-            <td align="center"><img style="width: 200px;height: 100px; " height="75em" src="../../images/frestaurants/<?=$busqueda['fotoPortada']?>" alt=""></td>
+            <td><?php
+                echo $english_format_number = number_format($busqueda['Votos'], 1, '.', '');
+                ?>
+            </td>
+            <td align="center">
+                <a href="../../restaurant.php?id_res=<?=$busqueda['idRestaurante']?>">
+                    <img style="width: 200px;height: 100px; " height="75em" src="../../images/frestaurants/<?=$busqueda['fotoPortada']?>" alt="">
+                </a>
+            </td>
         </tr>
         <?php
         }

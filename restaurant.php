@@ -35,41 +35,9 @@ session_start();
     </script>
 </head>
 <body>
-<header class="main-header">
-    <div class="mod-logo">
-        <a href="principal.php">
-            <img class="mod-logo__img" src="images/logo/logoext1.png" alt="">
-        </a>
-    </div>
-    <nav class="mod-nav">
-        <ul class="mod-menu">
-            <li class="mod-menu__item"><a class="mod-menu__link" href="#"><?=$_SESSION["nombreUsuario"]." ".$_SESSION["apellidoUsuario"]?></a></li>
-            <li class="mod-menu__item"><a class="mod-menu__link b" href="#">Login</a></li>
-        </ul>
-    </nav>
-</header>
-
-<div class="nav-mixed menu">
-    <nav class="single-nav menu">
-        <ul>
-            <li><a href="#">Reserva</a></li>
-            <li><a href="RankingManagement/view/listRanking_view.php">Rankings</a></li>
-            <?php
-            if(isset($_SESSION["nivelUsuario"]) and ($_SESSION["nivelUsuario"] == "Administrador" or $_SESSION["nivelUsuario"] == "Restaurante")){
-                ?>
-                <li><a href="RestaurantManagement/view/listRestaurante_view.php">Gestión Restaurante</a></li>
-            <?php }?>
-        </ul>
-    </nav>
-    <nav class="social-menu menu" role="navigation">
-        <nav class="single-nav menu">
-            <ul>
-                <li><a href="#"><span>otra cosa</span></a></li>
-            </ul>
-        </nav>
-    </nav>
-</div>
 <?php
+include_once ('header_public.php');
+
 $id_res = $_GET["id_res"];
 
 $instruccion = "SELECT * FROM restaurante WHERE idRestaurante = {$id_res}";
@@ -90,10 +58,13 @@ if ($datos) {
     <section class="restaurant-reservation">
        <div class="reservation-wrapper">
            <h3>Reserva Rápida</h3>
-            <input class="banner-input" type="date" id="date-picker" placeholder="Cualquier fecha">
-            <input class="banner-input" type="datetime" id="time" placeholder="00:00">
-            <input class="banner-input" type="number" id="people" placeholder="N° Personas" min="0" max="<?=$dato["capacidad"]?>">
-           <input class="banner-button" type="button" value="RESERVAR">
+           <form action="ReservationManagement/addReservation.php" method="POST">
+               <input class="banner-input" type="date" name="fechaReserva" id="date-picker" placeholder="Cualquier fecha">
+               <input class="banner-input" type="datetime" id="time" placeholder="00:00">
+               <input type="hidden" name="idRestaurante" value="<?=$dato["idRestaurante"]?>">
+               <input class="banner-input" type="number" name="personas" id="people" placeholder="N° Personas" min="0" max="<?=$dato["capacidad"]?>">
+               <input class="banner-button" type="submit" name="reservar" value="RESERVAR">
+           </form>
        </div>
     </section>
 </div>

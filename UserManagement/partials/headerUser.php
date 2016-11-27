@@ -1,6 +1,3 @@
-<?php
-include_once('../../conexion.php');
-?>
 <header class="main-header">
     <div class="mod-logo">
         <a href="../../principal.php">
@@ -10,7 +7,7 @@ include_once('../../conexion.php');
     <nav class="mod-nav">
         <ul class="mod-menu">
             <li class="mod-menu__item"><a class="mod-menu__link" href="#"><?=$_SESSION["nombreUsuario"]." ".$_SESSION["apellidoUsuario"]?></a></li>
-            <li class="mod-menu__item"><a class="mod-menu__link b" href="../../control.php" name="salir">Salir</a></li>
+            <li class="mod-menu__item"><a class="mod-menu__link b" href="../../control.php?salir=si" name="salir">Salir</a></li>
         </ul>
     </nav>
 </header>
@@ -18,21 +15,20 @@ include_once('../../conexion.php');
 <div class="nav-mixed menu">
     <nav class="single-nav menu">
         <ul>
-            <li><a href="../../UserManagement/view/user_view.php">Reserva</a></li>
+            <li><a href="../view/user_view.php">Reservas</a></li>
             <li><a href="../../RankingManagement/view/listRanking_view.php">Rankings</a></li>
             <?php
             if(isset($_SESSION["nivelUsuario"]) and ($_SESSION["nivelUsuario"] == "Administrador" or $_SESSION["nivelUsuario"] == "Restaurante")){
                 ?>
                 <li><a href="../../RestaurantManagement/view/listRestaurante_view.php">Gestión Restaurante</a></li>
-                <li><a href="../../RestaurantManagement/view/listRestaurante_view.php">Gestión Usuarios</a></li>
             <?php }?>
         </ul>
     </nav>
     <nav class="social-menu menu" role="navigation">
-            <nav class="single-nav menu">
-                <ul>
-                    <li><a href="#"><span>Mi Cuenta</span></a></li>
-                </ul>
-            </nav>
+        <nav class="single-nav menu">
+            <ul>
+                <li><a href="../../search.php?tipo=Criolla"><span>Restaurentes</span></a></li>
+            </ul>
+        </nav>
     </nav>
 </div>

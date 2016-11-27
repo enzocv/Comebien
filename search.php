@@ -1,6 +1,7 @@
 <?php
     include_once ('conexion.php');
     $link = Conectarse();
+    session_start();
 
     if (isset($_POST["buscar"])){
         $tipoCocina = $_POST["tipoCocina"];
@@ -26,10 +27,16 @@
 
         $feha = date("d/m/Y");
     }
-    $consulta = "SELECT * FROM tipodetalle tdeta inner join restaurante res on res.idRestaurante = tdeta.idRestaurante
-                inner join tiporestaurante tres on tres.idTipo = tdeta.idTipo inner join distrito dis
+    $consulta = "SELECT res.idRestaurante,res.nombreRestaurante,res.direccionRestaurante,
+                res.precioGeneral, res.fotoPortada
+                FROM tipodetalle tdeta
+                inner join restaurante res
+                on res.idRestaurante = tdeta.idRestaurante
+                inner join tiporestaurante tres
+                on tres.idTipo = tdeta.idTipo
+                inner join distrito dis
                 on dis.idDistrito = res.idDistrito
-                where tres.nombreTipo = '{$tipoCocina}' AND dis.nombreDistrito = '{$locacion}'";
+                where tres.nombreTipo = '{$tipoCocina}' AND dis.nombreDistrito = '$locacion'";
 
 
 ?>
@@ -45,38 +52,7 @@
     <link rel="stylesheet" href="css/style_restaurantes.css">
 </head>
 <body>
-    <header class="main-header">
-        <div class="mod-logo">
-            <a href="principal.php">
-                <img class="mod-logo__img" src="images/logo/logoext1.png" alt="">
-            </a>
-        </div>
-        <nav class="mod-nav">
-            <ul class="mod-menu">
-                <li class="mod-menu__item"><a class="mod-menu__link" href="#">Usuario</a></li>
-                <li class="mod-menu__item"><a class="mod-menu__link b" href="#">Login</a></li>
-            </ul>
-        </nav>
-    </header>
-
-    <div class="nav-mixed menu">
-        <nav class="single-nav menu">
-            <ul>
-                <li><a href="#">Reserva</a></li>
-                <li><a href="#">Elige</a></li>
-                <li><a href="#">Ofertas</a></li>
-                <li><a href="#">Rankings</a></li>
-            </ul>
-        </nav>
-        <nav class="social-menu menu" role="navigation">
-            <ul>
-                <li><a href="http://facebook.com"><span class="screen-reader-text">Facebook</span></a></li>
-                <li><a href="http://twitter.com"><span class="screen-reader-text">Twitter</span></a></li>
-                <li><a href="http://plus.google.com"><span class="screen-reader-text">Google Plus</span></a></li>
-                <li><a href="http://youtube.com"><span class="screen-reader-text">YouTube</span></a></li>
-            </ul>
-        </nav>
-    </div>
+    <?php  include_once ('header_public.php'); ?>
 
     <section class="contaier-options__search">
         <h3 class="title-search">Busqueda de Restaurantes</h3>
@@ -149,7 +125,7 @@
                         <div class="box-help">
                             <p class="search-restaurant__info--calification"><span
                                         class="stars">&star;&star;&star;</span>calificacón</p>
-                            <p class="search-restaurant__info--precio"><span class="desde">desde</span><?=$busqueda['precioGeneral']?></p>
+                            <p class="search-restaurant__info--precio"><span class="desde">Precio General</span><?=$busqueda['precioGeneral']?></p>
                             <a class="search-restaurant__info--more" href="restaurant.php?id_res=<?=$busqueda['idRestaurante']?>">Leer más..</a>
                         </div>
                     </section>
